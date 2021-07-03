@@ -1,5 +1,9 @@
 # TalleR
 
+<center>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSem0vIvC4fwLK-mDSM2uTNH6uUySDhnCJMqOzirUyt27ICRWw/viewform" height="405" width="720" style="border: 0px;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
+</center>
+
 ## Presentación
 
 <p align="justify">
@@ -64,3 +68,5 @@ Este taller se mete en todo esto con el horizonte de que quienes lo cursen pueda
 #### Dudas y consultas sobre lo visto en el tercer encuentro. Análisis profundo del corpus: filtros y sub-corpus (sobre notas referidas a eventos de protesta). Ajuste de las palabras vacías con un diccionario personalizado. Eliminación de notas repetidas. Elaboración de resúmenes con palabas clave, etc. Análisis exploratorio de los datos normalizados con paquetes de visualización: ggplot2 y sf. Armado de índices de conflictividad. Prácticas de codeo en vivo (sincrónicas). Dudas y consultas de lo ejercitado durante el encuentro.
 
 </div>
+
+
