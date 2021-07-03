@@ -20,10 +20,10 @@ Este taller se mete en todo esto con el horizonte de que quienes lo cursen pueda
 ## Objetivos
 <div align="justify">
 <ol>
-<li>Conocer los aspectos básicos de la programación en R (como humanistas no como programadorxs, o sea, más o menos...).</li>
+<li>Conocer los aspectos básicos de la programación en R (como humanistas 🤓 no como programadorxs 👽, o sea, más o menos...).</li>
 <li>Dar los primeros pasos en el manejo del IDE RStudio (entorno de desarrollo integrado para R, fuera esa horrible ventana ⬛ de R base).</li>
-<li>Aprender los rudimentos elementales del manejo de cadena de caracteres y corpus de textos.</li>
-<li>Saber transformar las palabras en números para realizar mediciones de frecuencias, proporciones y relaciones (veremos que las palabras y los números no se llevan tan mal y que la frontera entre lo cuali y lo cuanti no es tan nítida como creíamos.</li>
+<li>Aprender los rudimentos elementales del manejo de cadena de caracteres 🔠 y corpus de textos 📃📑📜.</li>
+<li>Saber transformar las palabras 🔤 en números 🔢 para realizar mediciones de frecuencias, proporciones y relaciones (veremos que las palabras y los números no se llevan tan mal y que la frontera entre lo cuali y lo cuanti no es tan nítida como creíamos.</li>
 <li>Lograr familiarizarse con algunos de los paquetes de visualización más populares en R. Si no lo veo no lo creo: las visualizaciones son una forma muy conveniente de detectar, patrones y correlaciones (ni palabras ni números, garabatos).</li>
 </ol>
 </div>
