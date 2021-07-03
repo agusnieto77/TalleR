@@ -1,7 +1,7 @@
 # TalleR
 
 <center>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSem0vIvC4fwLK-mDSM2uTNH6uUySDhnCJMqOzirUyt27ICRWw/viewform" height="405" width="720" style="border: 0px;" allowfullscreen="" allow="autoplay" data-external="1"></iframe>
+Inscripción, por aquí -> [Ir al formulario](https://docs.google.com/forms/d/e/1FAIpQLSem0vIvC4fwLK-mDSM2uTNH6uUySDhnCJMqOzirUyt27ICRWw/viewform)
 </center>
 
 ## Presentación
