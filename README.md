@@ -43,6 +43,8 @@ Este taller se mete en todo esto con el horizonte de que quienes lo cursen pueda
 
 ### Los días jueves de 10 a 14 horas
 
+<div align="justify">
+
 #### La primera y la última media hora serán destinadas para que les cursantes realicen consultas y despejen dudas.
 
 ### Primer encuentro [jueves 22 de julio]
@@ -60,3 +62,5 @@ Este taller se mete en todo esto con el horizonte de que quienes lo cursen pueda
 ### Cuarto encuentro [jueves 12 de agosto]
 
 #### Dudas y consultas sobre lo visto en el tercer encuentro. Análisis profundo del corpus: filtros y sub-corpus (sobre notas referidas a eventos de protesta). Ajuste de las palabras vacías con un diccionario personalizado. Eliminación de notas repetidas. Elaboración de resúmenes con palabas clave, etc. Análisis exploratorio de los datos normalizados con paquetes de visualización: ggplot2 y sf. Armado de índices de conflictividad. Prácticas de codeo en vivo (sincrónicas). Dudas y consultas de lo ejercitado durante el encuentro.
+
+</div>
