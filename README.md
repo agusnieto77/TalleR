@@ -48,19 +48,20 @@ Este taller se mete en todo esto con el horizonte de que quienes lo cursen pueda
 #### La primera y la última media hora serán destinadas para que les cursantes realicen consultas y despejen dudas.
 
 ### Primer encuentro [jueves 22 de julio]
-
+<div style="color:darkred">
 #### De palabras a números y viceversa. Alcance y límites de la minería de textos para la medición de la conflictividad social: experiencias de investigación en el marco del Observatorio de Conflictividad Social de la UNMdP. Constatar que a todxs lxs participantes les funcionen R y RStudio. 
-
+</div>
 ### Segundo encuentro [jueves 29 de julio]
-
+<div style="color:darkred">
 #### Dudas y consultas sobre lo visto en el primer encuentro. Web Scraping con rvest y RSelenium. HTML, CSS y coso: las etiquetas para la recuperación de la información que necesitamos.  Prácticas de codeo en vivo (sincrónicas). Dudas y consultas de lo ejercitado durante el encuentro. 
-
+</div>
 ### Tercer encuentro [jueves 5 de agosto]
-
+<div style="color:darkred">
 #### Dudas y consultas sobre lo visto en el segundo encuentro. Limpieza y normalización del corpus que logramos scrapear. Palabras vacías (stopwords), lemas, raíces, entidades, etiquetas POS (Parts Of Speech), etc. Tokenizado de textos. Primeras mediciones: palabras más frecuentes y relaciones más fuertes. Uso de diccionarios para la detección de eventos (de protesta) y otras entidades (provincias, barrios, organizaciones, etc.). Prácticas de codeo en vivo (sincrónicas). Dudas y consultas de lo ejercitado durante el encuentro.
-
+</div>
 ### Cuarto encuentro [jueves 12 de agosto]
-
+<div style="color:darkred">
 #### Dudas y consultas sobre lo visto en el tercer encuentro. Análisis profundo del corpus: filtros y sub-corpus (sobre notas referidas a eventos de protesta). Ajuste de las palabras vacías con un diccionario personalizado. Eliminación de notas repetidas. Elaboración de resúmenes con palabas clave, etc. Análisis exploratorio de los datos normalizados con paquetes de visualización: ggplot2 y sf. Armado de índices de conflictividad. Prácticas de codeo en vivo (sincrónicas). Dudas y consultas de lo ejercitado durante el encuentro.
+</div>
 
 </div>
