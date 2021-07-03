@@ -10,7 +10,11 @@ El giro digital y su boom de datos forzó diálogos insospechados entre las cien
 </p>
 
 <p align="justify">
-Dentro de la maraña de epistemologías, problemáticas, metodologías, técnicas, enfoques y lenguajes de programación disponibles para adentrarse en el mundo de las ciencias sociales computacionales y las humanidades digitales, elegimos el camino utilitarista de les autodidactas de tutoriales de youtube. A partir de un set pequeño de problemas concretos a resolver (cómo bajar de internet grandes cantidades de texto, de qué modo darle formato tabular, cómo limpiarlos, procesarlos y explorarlos y visualizarlos sin hacer una lectura cercana de lo recolectado, y no morir en el intento) nos relacionaremos con el lenguaje de programación R (no con Julia, Python, Java, C, C++, etc., etc., que son buenos pero no tanto, 😉) para desarrollar ejercicios de web scraping, minería de texto y lectura distante para analizar y medir la conflictividad social.
+Dentro de la maraña de epistemologías, problemáticas, metodologías, técnicas, enfoques y lenguajes de programación disponibles para adentrarse en el mundo de las ciencias sociales computacionales y las humanidades digitales, elegimos el camino utilitarista de les autodidactas de tutoriales de youtube. A partir de un set pequeño de problemas concretos a resolver (cómo bajar de internet grandes cantidades de texto, de qué modo darle formato tabular, cómo limpiarlos, procesarlos, explorarlos y visualizarlos sin hacer una lectura cercana de lo recolectado, y no morir en el intento) nos relacionaremos con el lenguaje de programación R (no con Julia, Python, Java, C, C++, etc., etc., que son buenos pero no tanto, 😉) para desarrollar ejercicios de web scraping, minería de texto y lectura distante.
+</p>
+
+<p align="justify">
+Este taller se mete en todo esto con el horizonte de que quienes lo cursen puedan realizar análisis y mediciones de la conflictividad social, hechos de rebelión, eventos de protesta, o como quieran llamarlos. En este sentido, y esta vez va en serio, los lenguajes de programación como R, Python, Julia y otros nos brindan herramientas muy potentes tanto para desarrollar los tradicionales análisis estadísticos como para utilizar y desarrollar algoritmos útiles para procesar y analizar un gran volumen de información no estructurada como o son las notas periodísticas publicadas diariamente por los portales noticiosos como *La Nación*, *La Capital*, *Los Andes*, por nombrar solo algunos.
 </p>
 </div>
 
