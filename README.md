@@ -24,11 +24,20 @@ Este taller se mete en todo esto con el horizonte de que quienes lo cursen pueda
 <li>Dar los primeros pasos en el manejo del IDE RStudio (entorno de desarrollo integrado para R, fuera esa horrible ventana ⬛ de R base).</li>
 <li>Aprender los rudimentos elementales del manejo de cadena de caracteres 🔠 y corpus de textos 📃📑📜.</li>
 <li>Saber transformar las palabras 🔤 en números 🔢 para realizar mediciones de frecuencias, proporciones y relaciones (veremos que las palabras y los números no se llevan tan mal y que la frontera entre lo cuali y lo cuanti no es tan nítida como creíamos.</li>
-<li>Lograr familiarizarse con algunos de los paquetes de visualización más populares en R. Si no lo veo no lo creo: las visualizaciones son una forma muy conveniente de detectar, patrones y correlaciones (ni palabras ni números, garabatos).</li>
+<li>Lograr familiarizarse con algunos de los paquetes de visualización 📊 📈 más populares en R. 'Si no lo veo no lo creo': las visualizaciones son una forma muy conveniente de detectar patrones y correlaciones (ni palabras ni números, garabatos).</li>
 </ol>
 </div>
 
 ## Contenidos
+
+<div align="justify">
+<ol>
+<li>Instalación del lenguaje R y exploración de su sintaxis básica. Introducción a la sintaxis básica. Distintos objetos R: vectores, arrays, matrices, listas, base de datos, etc. Distintos tipos de objetos: cadena de caracteres, numéricos, factores, etc. Funciones básicas, sum(), paste(), mean(), table(), summary(), etc.</li>
+<li>Instalación de RStudio y reconocimiento de sus ventanas (consola, script, visualización, objetos en memoria, etc.). Creación de scripts. Organización del directorio de trabajo. Creación de proyectos. Vinculación con github.</li>
+<li>Web Scraping con rvest y RSelenium. Inspección de estructuras html. Recuperación de información publicada en la web, tanto en páginas estáticas como en páginas dinámicas. Transformación de la información semi-estructurada en datos estructurados.</li>
+<li>Lograr familiarizarse con algunos de los paquetes de visualización 📊 📈 más populares en R. 'Si no lo veo no lo creo': las visualizaciones son una forma muy conveniente de detectar patrones y correlaciones (ni palabras ni números, garabatos).</li>
+</ol>
+</div>
 
 ## Encuentros 
 
@@ -38,8 +47,16 @@ Este taller se mete en todo esto con el horizonte de que quienes lo cursen pueda
 
 ### Primer encuentro [jueves 22 de julio]
 
+#### De palabras a números y viceversa. Alcance y límites de la minería de textos para la medición de la conflcitividad social.
+
 ### Segundo encuentro [jueves 29 de julio]
+
+#### De palabras a números y viceversa. Alcance y límites de la minería de textos para la medición de la conflcitividad social.
 
 ### Tercer enceuntro [jueves 5 de agosto]
 
+#### De palabras a números y viceversa. Alcance y límites de la minería de textos para la medición de la conflcitividad social.
+
 ### Cuarto encuentro [jueves 12 de agosto]
+
+#### De palabras a números y viceversa. Alcance y límites de la minería de textos para la medición de la conflcitividad social.
