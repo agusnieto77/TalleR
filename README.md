@@ -1,8 +1,8 @@
 # TalleR
 
-<center>
-Inscripción, por aquí -> [Ir al formulario](https://docs.google.com/forms/d/e/1FAIpQLSem0vIvC4fwLK-mDSM2uTNH6uUySDhnCJMqOzirUyt27ICRWw/viewform)
-</center>
+
+Inscripción, por aquí -> [Ir al formulario]: https://docs.google.com/forms/d/e/1FAIpQLSem0vIvC4fwLK-mDSM2uTNH6uUySDhnCJMqOzirUyt27ICRWw/viewform
+
 
 ## Presentación
 
