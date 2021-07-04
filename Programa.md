@@ -1,3 +1,16 @@
+<style>
+body {
+text-align: justify}
+h1 {
+text-align: justify}
+h2{
+text-align: justify}
+h3 {
+text-align: justify}
+h4 {
+text-align: justify}
+</style>
+
 # TalleR
 
 Inscripción, por aquí -&gt; [Ir al
