@@ -59,7 +59,7 @@ nombrar solo algunos.
 
 ## Objetivos
 
-<ol>
+<ol text-align="justify">
 <li>
 Conocer los aspectos básicos de la programación en R (como humanistas 🤓
 no como programadorxs 👽, o sea, más o menos…).
@@ -72,13 +72,13 @@ desarrollo integrado para R, fuera esa horrible ventana ⬛ de R base).
 Aprender los rudimentos elementales del manejo de cadena de caracteres 🔠
 y corpus de textos 📃📑📜.
 </li>
-<li>
+<li text-align="justify">
 Saber transformar las palabras 🔤 en números 🔢 para realizar mediciones
 de frecuencias, proporciones y relaciones (veremos que las palabras y
 los números no se llevan tan mal y que la frontera entre lo cuali y lo
 cuanti no es tan nítida como creíamos.
 </li>
-<li>
+<li align="justify">
 Lograr familiarizarse con algunos de los paquetes de visualización 📊 📈
 más populares en R. ‘Si no lo veo no lo creo’: las visualizaciones son
 una forma muy conveniente de detectar patrones y correlaciones (ni
@@ -88,7 +88,7 @@ palabras ni números, garabatos).
 
 ## Contenidos
 
-<ol>
+<ol text-align="justify">
 <li>
 Instalación del lenguaje R y exploración de su sintaxis básica.
 Introducción a la sintaxis básica. Distintos objetos R: vectores,
@@ -120,24 +120,50 @@ palabras ni números, garabatos).
 
 ### Los días jueves de 10 a 14 horas
 
-<justify>
-
 #### La primera y la última media hora serán destinadas para que les cursantes realicen consultas y despejen dudas.
 
 ### Primer encuentro \[jueves 22 de julio\]
 
-#### De palabras a números y viceversa. Alcance y límites de la minería de textos para la medición de la conflictividad social: experiencias de investigación en el marco del Observatorio de Conflictividad Social de la UNMdP. Constatar que a todxs lxs participantes les funcionen R y RStudio.
+<p style="text-align:center; color:red">
+De palabras a números y viceversa. Alcance y límites de la minería de
+textos para la medición de la conflictividad social: experiencias de
+investigación en el marco del Observatorio de Conflictividad Social de
+la UNMdP. Constatar que a todxs lxs participantes les funcionen R y
+RStudio.
+</p>
 
 ### Segundo encuentro \[jueves 29 de julio\]
 
-#### Dudas y consultas sobre lo visto en el primer encuentro. Web Scraping con rvest y RSelenium. HTML, CSS y coso: las etiquetas para la recuperación de la información que necesitamos. Prácticas de codeo en vivo (sincrónicas). Dudas y consultas de lo ejercitado durante el encuentro.
+<p align="justify">
+Dudas y consultas sobre lo visto en el primer encuentro. Web Scraping
+con rvest y RSelenium. HTML, CSS y coso: las etiquetas para la
+recuperación de la información que necesitamos. Prácticas de codeo en
+vivo (sincrónicas). Dudas y consultas de lo ejercitado durante el
+encuentro.
+</p>
 
 ### Tercer encuentro \[jueves 5 de agosto\]
 
-#### Dudas y consultas sobre lo visto en el segundo encuentro. Limpieza y normalización del corpus que logramos scrapear. Palabras vacías (stopwords), lemas, raíces, entidades, etiquetas POS (Parts Of Speech), etc. Tokenizado de textos. Primeras mediciones: palabras más frecuentes y relaciones más fuertes. Uso de diccionarios para la detección de eventos (de protesta) y otras entidades (provincias, barrios, organizaciones, etc.). Prácticas de codeo en vivo (sincrónicas). Dudas y consultas de lo ejercitado durante el encuentro.
+<p align="justify">
+Dudas y consultas sobre lo visto en el segundo encuentro. Limpieza y
+normalización del corpus que logramos scrapear. Palabras vacías
+(stopwords), lemas, raíces, entidades, etiquetas POS (Parts Of Speech),
+etc. Tokenizado de textos. Primeras mediciones: palabras más frecuentes
+y relaciones más fuertes. Uso de diccionarios para la detección de
+eventos (de protesta) y otras entidades (provincias, barrios,
+organizaciones, etc.). Prácticas de codeo en vivo (sincrónicas). Dudas y
+consultas de lo ejercitado durante el encuentro.
+</p>
 
 ### Cuarto encuentro \[jueves 12 de agosto\]
 
-#### Dudas y consultas sobre lo visto en el tercer encuentro. Análisis profundo del corpus: filtros y sub-corpus (sobre notas referidas a eventos de protesta). Ajuste de las palabras vacías con un diccionario personalizado. Eliminación de notas repetidas. Elaboración de resúmenes con palabas clave, etc. Análisis exploratorio de los datos normalizados con paquetes de visualización: ggplot2 y sf. Armado de índices de conflictividad. Prácticas de codeo en vivo (sincrónicas). Dudas y consultas de lo ejercitado durante el encuentro.
-
-</justify>
+<p align="justify">
+Dudas y consultas sobre lo visto en el tercer encuentro. Análisis
+profundo del corpus: filtros y sub-corpus (sobre notas referidas a
+eventos de protesta). Ajuste de las palabras vacías con un diccionario
+personalizado. Eliminación de notas repetidas. Elaboración de resúmenes
+con palabas clave, etc. Análisis exploratorio de los datos normalizados
+con paquetes de visualización: ggplot2 y sf. Armado de índices de
+conflictividad. Prácticas de codeo en vivo (sincrónicas). Dudas y
+consultas de lo ejercitado durante el encuentro.
+</p>
