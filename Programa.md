@@ -124,17 +124,17 @@ palabras ni números, garabatos).
 
 ### Primer encuentro \[jueves 22 de julio\]
 
-<p align="justify"; color="red">De palabras a números y viceversa. Alcance y límites de la minería de textos para la medición de la conflictividad social: experiencias de investigación en el marco del Observatorio de Conflictividad Social de la UNMdP. Constatar que a todxs lxs participantes les funcionen R y RStudio.</p>
+<p align="justify">
+De palabras a números y viceversa. Alcance y límites de la minería de
+textos para la medición de la conflictividad social: experiencias de
+investigación en el marco del Observatorio de Conflictividad Social de
+la UNMdP. Constatar que a todxs lxs participantes les funcionen R y
+RStudio.
+</p>
 
 ### Segundo encuentro \[jueves 29 de julio\]
 
-<p color="red">
-Dudas y consultas sobre lo visto en el primer encuentro. Web Scraping
-con rvest y RSelenium. HTML, CSS y coso: las etiquetas para la
-recuperación de la información que necesitamos. Prácticas de codeo en
-vivo (sincrónicas). Dudas y consultas de lo ejercitado durante el
-encuentro.
-</p>
+<p align="justify"; text-color="red">Dudas y consultas sobre lo visto en el primer encuentro. Web Scraping con rvest y RSelenium. HTML, CSS y coso: las etiquetas para la recuperación de la información que necesitamos.  Prácticas de codeo en vivo (sincrónicas). Dudas y consultas de lo ejercitado durante el encuentro.</p>
 
 ### Tercer encuentro \[jueves 5 de agosto\]
 
