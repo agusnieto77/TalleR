@@ -59,7 +59,7 @@ nombrar solo algunos.
 
 ## Objetivos
 
-<ol text-align="justify">
+<ol>
 <li>
 Conocer los aspectos básicos de la programación en R (como humanistas 🤓
 no como programadorxs 👽, o sea, más o menos…).
@@ -88,7 +88,7 @@ palabras ni números, garabatos).
 
 ## Contenidos
 
-<ol text-align="justify">
+<ol>
 <li>
 Instalación del lenguaje R y exploración de su sintaxis básica.
 Introducción a la sintaxis básica. Distintos objetos R: vectores,
@@ -124,17 +124,11 @@ palabras ni números, garabatos).
 
 ### Primer encuentro \[jueves 22 de julio\]
 
-<p style="text-align:center; color:red">
-De palabras a números y viceversa. Alcance y límites de la minería de
-textos para la medición de la conflictividad social: experiencias de
-investigación en el marco del Observatorio de Conflictividad Social de
-la UNMdP. Constatar que a todxs lxs participantes les funcionen R y
-RStudio.
-</p>
+<p align="justify"; color="red">De palabras a números y viceversa. Alcance y límites de la minería de textos para la medición de la conflictividad social: experiencias de investigación en el marco del Observatorio de Conflictividad Social de la UNMdP. Constatar que a todxs lxs participantes les funcionen R y RStudio.</p>
 
 ### Segundo encuentro \[jueves 29 de julio\]
 
-<p align="justify">
+<p color="red">
 Dudas y consultas sobre lo visto en el primer encuentro. Web Scraping
 con rvest y RSelenium. HTML, CSS y coso: las etiquetas para la
 recuperación de la información que necesitamos. Prácticas de codeo en
