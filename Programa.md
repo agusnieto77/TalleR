@@ -1,8 +1,5 @@
 # TalleR
 
-Inscripción, por aquí -&gt; [Ir al
-formulario](https://docs.google.com/forms/d/e/1FAIpQLSem0vIvC4fwLK-mDSM2uTNH6uUySDhnCJMqOzirUyt27ICRWw/viewform)
-
 ## Presentación
 
 <p align="justify">
