@@ -85,11 +85,15 @@ de descarga o ***googlear*** “download R”. Googleemos…
 #### 
 
 …y luego hacemos clic sobre ‘R-4.1.0 for Windows (32/64 bit)’ para bajar
-el archivo .exe de R.
+el archivo .exe de R. Sí, tienen razón, el número de versión de la
+imagen no coincide con el número de versión que aparece en estas líneas.
+Esto es así porque las capturas son de diciembre de 2020 y en 2021 R y
+RStudio cambiaron de versión. ATENTI: esto va a ocurrir con todas las
+capturas de pantalla.
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/exe_r.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/exe_r.png)
 
 #### 
 
@@ -101,7 +105,7 @@ la carpeta Downloads (Descargas) del disco `C:\` de nuestro ordenador.
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/exe_r_b.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/exe_r_b.png)
 
 #### 
 
@@ -116,7 +120,7 @@ Esta última es la opción que recomendamos.
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/exe_r_admin.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/exe_r_admin.png)
 
 #### 
 
@@ -129,7 +133,7 @@ clic en `Sí`.
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/INTALL.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/INTALL.png)
 
 #### 
 
@@ -142,7 +146,7 @@ Escogemos el idioma que deseamos y hacemos clic en `Aceptar`.
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/exe_r_aceptar.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/exe_r_aceptar.png)
 
 #### 
 
@@ -154,7 +158,7 @@ solo si tienen ganas, no creo que lo haga mucha gente.
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/exe_r_sig_1.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/exe_r_sig_1.png)
 
 #### 
 
@@ -167,7 +171,7 @@ hacemos clic en `Siguiente >`.
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/exe_r_directorio.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/exe_r_directorio.png)
 
 #### 
 
@@ -179,7 +183,7 @@ valores que vienen seleccionados por defecto. Luego hacemos clic en
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/exe_r_instalacion_usuario.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/exe_r_instalacion_usuario.png)
 
 #### 
 
@@ -192,7 +196,7 @@ Windows. Dejamos el valor preestablecido y hacemos clic en
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/menu_inicio_r.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/menu_inicio_r.png)
 
 #### 
 
@@ -203,7 +207,7 @@ En la siguiente ventana seleccionamos `No` en las
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/exe_r_opc_config.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/exe_r_opc_config.png)
 
 #### 
 
@@ -215,7 +219,7 @@ el Escritorio’ y hacemos clic en `Siguiente >`.
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/exe_r_acciones.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/exe_r_acciones.png)
 
 #### 
 
@@ -226,7 +230,7 @@ la ventana de instalación ya en ejecución:
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/exe_r_instalando.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/exe_r_instalando.png)
 
 #### 
 
@@ -237,7 +241,7 @@ instalación hacemos clic en `Finalizar`.
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/exe_r_completo.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/exe_r_completo.png)
 
 #### 
 
@@ -251,7 +255,7 @@ esto:
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/RGui.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/RGui.png)
 
 #### 
 
@@ -264,7 +268,7 @@ presionamos la tecla `Enter`. El resultado tendría que ser este:
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/RGui4.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/RGui4.png)
 
 #### 
 
@@ -299,7 +303,7 @@ descarga o ***googlear*** “download RStudio”. Googleemos…
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/rstudio_1.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/rstudio_1.png)
 
 #### 
 
@@ -311,7 +315,7 @@ y hacemos clic en `Free DOWNLOAD` como se ve abajo en la imagen.
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/rstudio_2.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/rstudio_2.png)
 
 #### 
 
@@ -323,7 +327,7 @@ Cuando se abre la página de descarga hacemos clic sobre
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/rstudio_3.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/rstudio_3.png)
 
 #### 
 
@@ -336,7 +340,7 @@ carpeta Downloads (Descargas) del disco `C:\` de nuestro ordenador.
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/rstudio_5.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/rstudio_5.png)
 
 #### 
 
@@ -350,7 +354,7 @@ opción `Ejecutar como administrador` y finalmente lo ejecutamos como
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/rstudio_6.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/rstudio_6.png)
 
 #### 
 
@@ -363,7 +367,7 @@ respondemos haciendo clic en `Sí`.
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/INSTALL.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/INSTALL.png)
 
 #### 
 
@@ -375,7 +379,7 @@ Una vez que ejecutamos ‘RStudio-1.4.1717.exe’ se abre la ventana del
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/rstudio_7.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/rstudio_7.png)
 
 #### 
 
@@ -388,7 +392,7 @@ viene seleccionada por defecto. En este caso:
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/rstudio_8.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/rstudio_8.png)
 
 #### 
 
@@ -400,7 +404,7 @@ los valores que vienen seleccionados por defecto. Luego hacemos clic en
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/rstudio_9.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/rstudio_9.png)
 
 #### 
 
@@ -411,7 +415,7 @@ la ventana de instalación una vez iniciado el proceso:
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/rstudio10.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/rstudio10.png)
 
 #### 
 
@@ -422,7 +426,7 @@ instalación hacemos clic en `Terminar`.
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/rstudio11.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/rstudio11.png)
 
 #### 
 
@@ -436,7 +440,7 @@ ver algo como esto, pero con fondo blanco:
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/rstudio12.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/rstudio12.png)
 
 #### 
 
@@ -462,7 +466,7 @@ este:
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/rstudio13.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/rstudio13.png)
 
 #### 
 
@@ -527,7 +531,7 @@ del listado que se imprime en consola:
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/rstudio14b.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/rstudio14b.png)
 
 #### 
 
@@ -601,7 +605,7 @@ Rtools:
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/rtools.png" width="70%" style="display: block; margin: auto;" />
+![](https://estudiosmaritimossociales.org/archivos/imagenes/rtools.png)
 
 #### 
 
