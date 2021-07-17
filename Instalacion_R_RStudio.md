@@ -80,7 +80,7 @@ de descarga o ***googlear*** “download R”. Googleemos…
 
 #### 
 
-![](%22C:/Users/agusn/Google%20Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/download_r_4.png%22)
+![](https://estudiosmaritimossociales.org/archivos/imagenes/download_r_4.png)
 
 #### 
 
