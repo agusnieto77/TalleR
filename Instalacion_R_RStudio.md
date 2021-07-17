@@ -80,7 +80,7 @@ de descarga o ***googlear*** “download R”. Googleemos…
 
 #### 
 
-<img src="C:/Users/agusn/Google Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/download_r_4.png" width="70%" style="display: block; margin: auto;" />
+![](%22C:/Users/agusn/Google%20Drive/R/PROYECTOS/Tutoriales/imagenes/usadas/download_r_4.png%22)
 
 #### 
 
