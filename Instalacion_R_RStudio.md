@@ -553,7 +553,7 @@ Para desarrollar el código de la versión interactiva me base en este
 ejemplo [Set
 Up](https://github.com/rstudio/learnr/blob/master/inst/tutorials/ex-setup-r/ex-setup-r.Rmd).
 
-### 
+#### 
 
 <p style="text-align: center;">
 
