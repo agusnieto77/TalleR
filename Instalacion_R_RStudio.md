@@ -651,6 +651,6 @@ Up](https://github.com/rstudio/learnr/blob/master/inst/tutorials/ex-setup-r/ex-s
 
 ### 
 
-<center>
-**Esto es todo por ahora. ¡Nos vemos pronto!**
-</center>
+<p style="text-align: center;">
+Esto es todo por ahora. ¡Nos vemos pronto!
+</p>
