@@ -133,7 +133,7 @@ clic en `Sí`.
 
 #### 
 
-![](https://estudiosmaritimossociales.org/archivos/imagenes/INTALL.png)
+![](https://estudiosmaritimossociales.org/archivos/imagenes/INSTALL.png)
 
 #### 
 
@@ -651,4 +651,6 @@ Up](https://github.com/rstudio/learnr/blob/master/inst/tutorials/ex-setup-r/ex-s
 
 ### 
 
+<center>
 **Esto es todo por ahora. ¡Nos vemos pronto!**
+</center>
