@@ -65,11 +65,15 @@ de descarga o ***googlear*** “download R”. Googleemos…
 #### 
 
 ![](https://estudiosmaritimossociales.org/archivos/imagenes/googlear_download_r.png)
+
+#### 
+
 Sí, tienen razón, el número de versión de la imagen no coincide con el
 número de versión que aparece en estas líneas. Esto es así porque las
 capturas son de diciembre de 2020 y en 2021 R y RStudio cambiaron de
 versión. ATENTI: esto va a ocurrir con todas las capturas de pantalla.
-\#\#\#\#
+
+#### 
 
 **Segundo**, accedemos a la página
 [cran.r-project.org/bin/windows/base/](https://cran.r-project.org/bin/windows/base/)
@@ -214,10 +218,10 @@ instalación hacemos clic en `Finalizar`.
 #### 
 
 **Cuarto**, abrimos el programa para comprobar que todo está bien. Lo
-podemos abrir desde el
-[icono](https://commons.wikimedia.org/wiki/File:R_logo.svg) creado en el
-escritorio o desde el archivo `RGui.exe`. Se tendría que ver algo como
-esto:
+podemos abrir desde el icono
+![](https://estudiosmaritimossociales.org/archivos/imagenes/favicon-16x16.png)
+creado en el escritorio o desde el archivo `RGui.exe`. Se tendría que
+ver algo como esto:
 
 #### 
 
