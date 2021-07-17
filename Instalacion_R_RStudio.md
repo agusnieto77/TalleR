@@ -40,8 +40,16 @@ Este tutorial lo ayudará a:
 
 <p>
 Y, sobre todo, les va a ayudar a tener todo listo para el talleR, cuyo
-rpimer encuentro es el **jueves 22 de julio**.
+primer encuentro es el </b>jueves 22 de julio</b>.
 </p>
+<p>
+Y, sobre todo, les va a ayudar a tener todo listo para el talleR, cuyo
+primer encuentro es el **jueves 22 de julio**.
+</p>
+
+Y, sobre todo, les va a ayudar a tener todo listo para el talleR, cuyo
+primer encuentro es el **jueves 22 de julio**.
+
 <p>
 Puede omitir este tutorial si ya tiene instalado R, RStudio y el paquete
 tidyverse en su computadora personal.
