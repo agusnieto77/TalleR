@@ -7,6 +7,4 @@ cursen, en el análisis computacional de la conflictividad social
 visibilizada en la prensa digital.
 </p>
 <p align="justify">
-[Ir al Programa del
-talleR](https://github.com/agusnieto77/TalleR/blob/main/Programa.md)
 </p>
