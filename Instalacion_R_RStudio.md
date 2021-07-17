@@ -541,17 +541,22 @@ Pruebe con la siguiente línea:
 
 #### 
 
-###### ¿Tuvieron éxito? ¡Felicitaciones!
+<center>
+<b>¿Tuvieron éxito? ¡Felicitaciones!</b>
+</center>
 
 ### Créditos
 
-Este tutorial es una versión no interactiva del tutorial interactivo
-(<https://gesmar-mdp.shinyapps.io/Instalr_R/>) que fue realizado con el
-paquete learnr de R [ver el código
-fuente](https://github.com/agusnieto77/instalr_R/blob/main/tutorial_rmd).
-Para desarrollar el código de la versión interactiva me base en este
-ejemplo [Set
+Este tutorial es una versión no interactiva y atualizada del tutorial
+interactivo (<https://gesmar-mdp.shinyapps.io/Instalr_R/>) que fue
+realizado con el paquete learnr de R [ver el código
+fuente](https://github.com/agusnieto77/instalr_R/blob/main/tutorial_rmd)
+realizado en el marco de un curso anterior. Para desarrollar el código
+de la versión interactiva me base en este ejemplo [Set
 Up](https://github.com/rstudio/learnr/blob/master/inst/tutorials/ex-setup-r/ex-setup-r.Rmd).
+
+También pueden acceder a la versión PDF del tutorial
+[AQUÍ](https://github.com/agusnieto77/TalleR/blob/main/Tutorial_instalacion_r_en_pdf.pdf)
 
 #### 
 
