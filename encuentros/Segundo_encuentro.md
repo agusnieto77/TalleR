@@ -797,11 +797,12 @@ header
 </p>
 </td>
 <td width="650">
-¿Usar la primera fila como encabezado? Si `NA`, utilizará la primera
-fila si consta de etiquetas `<th>`. Si `TRUE`, los nombres de las
-columnas se dejan exactamente como están en el documento de origen, lo
-que puede requerir un procesamiento posterior para generar un marco de
-datos válido.
+¿Usar la primera fila como encabezado? Si ‘NA’, utilizará la primera
+fila si consta de etiquetas ’
+<th>
+‘. Si ’TRUE’, los nombres de las columnas se dejan exactamente como
+están en el documento de origen, lo que puede requerir un procesamiento
+posterior para generar un marco de datos válido.
 </td>
 </tr>
 <tr>
@@ -1280,7 +1281,7 @@ relativa.
     ##   <field> (text) q: Maradona
     ##   <field> (submit) btnG: Buscar con Google
     ##   <field> (submit) btnI: Me siento con sue...
-    ##   <field> (hidden) iflsig: AINFCbYAAAAAYPi_H...
+    ##   <field> (hidden) iflsig: AINFCbYAAAAAYPi_k...
     ##   <field> (hidden) gbv: 1
 
 ### Tópico `html_session`
