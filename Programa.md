@@ -119,7 +119,7 @@ palabras ni números, garabatos).
 
 #### La primera y la última media hora serán destinadas para que les cursantes realicen consultas y despejen dudas.
 
-### Primer encuentro [jueves 22 de julio](https://github.com/agusnieto77/TalleR/blob/main/Primer_encuentro.md)
+### Primer encuentro [jueves 22 de julio](https://github.com/agusnieto77/TalleR/blob/main/encuentros/Primer_encuentro.md)
 
 <p align="justify">
 De palabras a números y viceversa. Alcance y límites de la minería de
@@ -129,11 +129,11 @@ la UNMdP. Constatar que a todxs lxs participantes les funcionen R y
 RStudio.
 </p>
 
-### Segundo encuentro [jueves 29 de julio](https://github.com/agusnieto77/TalleR/blob/main/Segundo_encuentro.md)
+### Segundo encuentro [jueves 29 de julio](https://github.com/agusnieto77/TalleR/blob/main/encuentros/Segundo_encuentro.md)
 
 <p align="justify"; text-color="red">Dudas y consultas sobre lo visto en el primer encuentro. Web Scraping con rvest y RSelenium. HTML, CSS y coso: las etiquetas para la recuperación de la información que necesitamos.  Prácticas de codeo en vivo (sincrónicas). Dudas y consultas de lo ejercitado durante el encuentro.</p>
 
-### Tercer encuentro [jueves 5 de agosto](https://github.com/agusnieto77/TalleR/blob/main/Tercer_encuentro.md)
+### Tercer encuentro [jueves 5 de agosto](https://github.com/agusnieto77/TalleR/blob/main/encuentros/Tercer_encuentro.md)
 
 <p align="justify">
 Dudas y consultas sobre lo visto en el segundo encuentro. Limpieza y
@@ -146,7 +146,7 @@ organizaciones, etc.). Prácticas de codeo en vivo (sincrónicas). Dudas y
 consultas de lo ejercitado durante el encuentro.
 </p>
 
-### Cuarto encuentro [jueves 12 de agosto](https://github.com/agusnieto77/TalleR/blob/main/Cuarto_encuentro.md)
+### Cuarto encuentro [jueves 12 de agosto](https://github.com/agusnieto77/TalleR/blob/main/encuentros/Cuarto_encuentro.md)
 
 <p align="justify">
 Dudas y consultas sobre lo visto en el tercer encuentro. Análisis

@@ -8,4 +8,6 @@ visibilizada en la prensa digital.
 </p>
 
 [Ir al Programa del
-talleR](https://github.com/agusnieto77/TalleR/blob/main/Programa.md)
+talleR](https://github.com/agusnieto77/TalleR/blob/main/Programa.md) [Ir
+a la bibliografía
+recomendada](https://github.com/agusnieto77/TalleR/blob/main/Bibliografia.md)
