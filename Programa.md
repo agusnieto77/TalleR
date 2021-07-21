@@ -158,3 +158,13 @@ con paquetes de visualización: ggplot2 y sf. Armado de índices de
 conflictividad. Prácticas de codeo en vivo (sincrónicas). Dudas y
 consultas de lo ejercitado durante el encuentro.
 </p>
+
+### Paquetes a usar
+
+-   tidyverse
+-   tidytext
+-   quanteda
+-   spacyr
+-   udpipe
+
+### [Bibliografía recomendada](https://github.com/agusnieto77/TalleR/blob/main/Bibliografia.md)
