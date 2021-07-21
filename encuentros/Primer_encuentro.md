@@ -22,3 +22,12 @@ RStudio.
 ### ¿Por qué analizar la conflictividad social con técnicas computacionales?
 
 ### Algo hicimos…
+
+-   [Activismo barrial en perspectiva histórica: un acercamiento
+    computacional](https://gesmar.estudiosmaritimossociales.org/Informe_GESMar_PI3CET_parte1.html)
+-   [Intersecciones entre historia digital e historia social: un
+    ejercicio de lectura distante sobre la conflictividad marítima en la
+    historia argentina
+    reciente](https://revistadrassana.cat/index.php/Drassana/article/view/650/731)
+-   [SISMOS - Conflictividad social en Mar del Plata – Informe
+    anual](https://observatoriodeconflictividad.org/conflictividad-social-en-mar-del-plata-informe-anual/)
