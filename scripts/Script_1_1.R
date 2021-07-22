@@ -4,7 +4,7 @@ require(scales)
 
 notas_norm <- readRDS(url("https://estudiosmaritimossociales.org/Data_TalleR/notas_norm.rds","rb"))
 
-(tabla_piquetes <- notas_norm_key_words_lemmas_sten %>% 
+(tabla_piquetes <- notas_norm %>% 
   mutate(piquetes = str_count(nota_limpia, 'piquete|corte de ruta|corte de calle')) %>% 
     mutate(año = year(fecha)) %>% 
   filter(año < 2021) %>% 
@@ -14,7 +14,7 @@ notas_norm <- readRDS(url("https://estudiosmaritimossociales.org/Data_TalleR/not
 ggplot(data=tabla_piquetes, aes(x=año,y=frec)) +
   geom_bar(stat = 'identity')
 
-(tabla_paros <- notas_norm_key_words_lemmas_sten %>% 
+(tabla_paros <- notas_norm %>% 
     mutate(paros = str_count(nota_limpia, 'huelga|paro de |paro activo|paran los')) %>% 
     mutate(año = year(fecha)) %>% 
     filter(año < 2021) %>% 
