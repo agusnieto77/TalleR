@@ -2,7 +2,7 @@ require(tidyverse)
 require(lubridate)
 require(scales)
 
-notas_norm <- readRDS("./data/notas_norm.rds")
+notas_norm <- readRDS(url("https://estudiosmaritimossociales.org/Data_TalleR/notas_norm.rds","rb"))
 
 (tabla_piquetes <- notas_norm_key_words_lemmas_sten %>% 
   mutate(piquetes = str_count(nota_limpia, 'piquete|corte de ruta|corte de calle')) %>% 
