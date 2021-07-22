@@ -9,7 +9,7 @@ RStudio.
 -   Presentación del TalleR
 -   Presentación de les cursantes
 -   Objetivos del TalleR
--   ‘Uno, dos, tres… probando’ R y RStudio: armar proyectos e instalar
+-   “Uno, dos, tres… probando” R y RStudio: armar proyectos e instalar
     paquetes
 -   Todo en uno: Tidyverse
 -   Lectura distante a partir de diccionarios
@@ -28,7 +28,7 @@ computadoras de escritorio, las innovaciones metodológicas y el
 incesante crecimiento de la masa de datos para lograr un mejor
 conocimiento sobre los fenómenos sociales.
 
-### 
+#### 
 
 El conflicto es un fenómeno social fundamental y, por ende, debería ser
 un tema central en la agenda de investigación de las ciencias sociales y
