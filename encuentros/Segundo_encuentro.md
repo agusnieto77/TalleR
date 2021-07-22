@@ -343,9 +343,7 @@ acceder si primero hacemos clic en el botón derecho del mouse sobre la
 página web a inspeccionar y luego hacemos clic izquierdo en la opción de
 inspeccionar, como se ve en la imagen de abajo.
 
-<center>
 ![](C:/Users/agusn/Google%20Drive/R/PROYECTOS/Tutoriales/Instalr_R/InspeccionarChrome.png)
-</center>
 
 Por acá dejamos dos recursos para interiorizarse más en la *inspección
 de elementos*: en
@@ -1268,7 +1266,7 @@ relativa.
     ##   <field> (text) q: Maradona
     ##   <field> (submit) btnG: Buscar con Google
     ##   <field> (submit) btnI: Me siento con sue...
-    ##   <field> (hidden) iflsig: AINFCbYAAAAAYPnDv...
+    ##   <field> (hidden) iflsig: AINFCbYAAAAAYPnEx...
     ##   <field> (hidden) gbv: 1
 
 ### Tópico `html_session`
