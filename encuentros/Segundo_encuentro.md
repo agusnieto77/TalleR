@@ -336,14 +336,14 @@ con selectores nativos. Abajo les dejo una imagen del `Inspect Element`
 de Chrome con las formas de acceder a la ventana del Inspector de
 Elementos.
 
-![](C:/Users/agusn/Google%20Drive/R/PROYECTOS/Tutoriales/Instalr_R/atajos_inspect_element.png)
+![](https://estudiosmaritimossociales.org/Data_TalleR/atajos_inspect_element.png)
 
 Además de los atajos de teclado y la tecla `F12`, también se puede
 acceder si primero hacemos clic en el botón derecho del mouse sobre la
 página web a inspeccionar y luego hacemos clic izquierdo en la opción de
 inspeccionar, como se ve en la imagen de abajo.
 
-![](C:/Users/agusn/Google%20Drive/R/PROYECTOS/Tutoriales/Instalr_R/InspeccionarChrome.png)
+![](https://estudiosmaritimossociales.org/Data_TalleR/InspeccionarChrome.png)
 
 Por acá dejamos dos recursos para interiorizarse más en la *inspección
 de elementos*: en
@@ -1266,7 +1266,7 @@ relativa.
     ##   <field> (text) q: Maradona
     ##   <field> (submit) btnG: Buscar con Google
     ##   <field> (submit) btnI: Me siento con sue...
-    ##   <field> (hidden) iflsig: AINFCbYAAAAAYPnEx...
+    ##   <field> (hidden) iflsig: AINFCbYAAAAAYPnGc...
     ##   <field> (hidden) gbv: 1
 
 ### Tópico `html_session`
