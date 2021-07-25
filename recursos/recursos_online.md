@@ -15,7 +15,9 @@ dentro de una cadena de texto. Las expresiones regulares proporcionan
 una manera muy flexible de buscar o reconocer cadenas de texto”
 ([Wikipedia](https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular)).
 
-#### ![Hoja de trucos para RegEx en R con las funciones del paquete stringr de tidyverse](https://github.com/agusnieto77/TalleR/tree/main/recursos/regex.png)
+#### Hoja de trucos para RegEx en R con las funciones del paquete stringr de tidyverse
+
+![](https://github.com/agusnieto77/TalleR/tree/main/recursos/regex.png)
 
 Para practicar un poco:
 
