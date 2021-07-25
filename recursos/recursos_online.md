@@ -17,7 +17,7 @@ una manera muy flexible de buscar o reconocer cadenas de texto”
 
 #### Hoja de trucos para RegEx en R con las funciones del paquete stringr de tidyverse
 
-![](https://github.com/agusnieto77/TalleR/tree/main/recursos/regex.png)
+![](https://estudiosmaritimossociales.org/Data_TalleR/regex.png)
 
 Para practicar un poco:
 
