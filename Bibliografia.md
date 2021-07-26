@@ -70,6 +70,9 @@
     [en
     PDF](https://estudiosmaritimossociales.org/Data_TalleR/WebScraping3.pdf)
 
+-   [Pittard: Web Scraping with
+    R](https://steviep42.github.io/webscraping/book/)
+
 -   [Thota & Elmasri:
     NLP-Suite](https://dl.acm.org/doi/fullHtml/10.1145/3453892.3461333) -
     [en
@@ -90,6 +93,12 @@
     era](https://link.springer.com/article/10.1007/s11135-020-01067-6) -
     [en
     PDF](https://estudiosmaritimossociales.org/Data_TalleR/Franzosi.pdf)
+
+-   [Ghai: Finding the needle in the haystack: Fine-tuning transformers
+    to classify protest events in a sea ofnews articles, with Bayesian
+    uncertainty measures
+    era](https://github.com/chrisghai/protest-event-detection) - [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/chris_ghai_thesis.pdf)
 
 -   [Olsson et.al: Text Categorization for Conflict Event
     Annotation](https://aclanthology.org/2020.aespen-1.5/) - [en
