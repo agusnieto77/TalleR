@@ -54,10 +54,21 @@
     [en
     PDF](https://estudiosmaritimossociales.org/Data_TalleR/WebScraping0.pdf)
 
--   [Doguku & Çetinkaya-Rundel:
-    NLP-Suite](https://www.tandfonline.com/doi/full/10.1080/10691898.2020.1787116) -
+-   [Doguku & Çetinkaya-Rundel: Web Scraping in the Statistics and Data
+    Science Curriculum: Challenges and
+    Opportunities](https://www.tandfonline.com/doi/full/10.1080/10691898.2020.1787116) -
     [en
     PDF](https://estudiosmaritimossociales.org/Data_TalleR/WebScraping2.pdf)
+
+-   [Krotov & Tennyson: Web Scraping in the R Language: A
+    Tutorial](https://aisel.aisnet.org/jmwais/vol2021/iss1/5/) - [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/WebScraping5.pdf)
+
+-   [Munzert: Automated Data Collection with R: a practical guide to web
+    scraping and text
+    mining](https://www.tandfonline.com/doi/full/10.1080/10691898.2020.1787116) -
+    [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/WebScraping3.pdf)
 
 -   [Thota & Elmasri:
     NLP-Suite](https://dl.acm.org/doi/fullHtml/10.1145/3453892.3461333) -
@@ -79,3 +90,13 @@
     era](https://link.springer.com/article/10.1007/s11135-020-01067-6) -
     [en
     PDF](https://estudiosmaritimossociales.org/Data_TalleR/Franzosi.pdf)
+
+-   [Olsson et.al: Text Categorization for Conflict Event
+    Annotation](https://aclanthology.org/2020.aespen-1.5/) - [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/2020.aespen-1.5.pdf)
+
+-   [Steinert-Threlkeld & Joo: Protest Event Data from Geolocated Social
+    Media
+    Content](https://preprints.apsanet.org/engage/apsa/article-details/5f594a6b1d75ae001b0fab90) -
+    [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/protest-event-data-from-geolocated-social-media-content.pdf)
