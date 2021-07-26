@@ -1,5 +1,7 @@
 # Bibliografía recomendada
 
+## Bibliografía sobre distintos tópicos de programación con R
+
 -   [Chian: Data Science con R: Fundamentos y
     Aplicaciones](https://bookdown.org/BEST/DSFA/)
 
@@ -11,6 +13,8 @@
 
 -   [Hyndman & Athanasopoulos: Forecasting: Principles and
     Practice](https://otexts.com/fpp3/)
+
+-   [Lee](http://idaejin.github.io/courses/R/2019/euskaltel/)
 
 -   [McNulty: Tidy web scraping in R — Tutorial and
     resources](https://towardsdatascience.com/tidy-web-scraping-in-r-tutorial-and-resources-ac9f72b4fe47)
@@ -41,3 +45,11 @@
 
 -   [Urdinez & Cruz Labrín: AnalizaR Datos
     Políticos](https://arcruz0.github.io/libroadp/index.html)
+
+## Bibliografía sobre ciencias sociales computacionales para el análisis de la conflictividad
+
+-   [Deutschmann et.al: Computational Conflict
+    Research](https://link.springer.com/book/10.1007/978-3-030-29333-8)
+
+-   [Franzosi:
+    NLP-Suite](https://github.com/NLP-Suite/NLP-Suite/wiki/About)
