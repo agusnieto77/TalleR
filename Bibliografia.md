@@ -14,7 +14,8 @@
 -   [Hyndman & Athanasopoulos: Forecasting: Principles and
     Practice](https://otexts.com/fpp3/)
 
--   [Lee](http://idaejin.github.io/courses/R/2019/euskaltel/)
+-   [Lee: Curso de formación en
+    R](http://idaejin.github.io/courses/R/2019/euskaltel/)
 
 -   [McNulty: Tidy web scraping in R — Tutorial and
     resources](https://towardsdatascience.com/tidy-web-scraping-in-r-tutorial-and-resources-ac9f72b4fe47)
