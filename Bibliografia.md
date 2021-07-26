@@ -53,3 +53,7 @@
 
 -   [Franzosi:
     NLP-Suite](https://github.com/NLP-Suite/NLP-Suite/wiki/About)
+
+-   [Franzosi: What’s in a text? Bridging the gap between quality and
+    quantity in the digital
+    era](https://link.springer.com/article/10.1007/s11135-020-01067-6)
