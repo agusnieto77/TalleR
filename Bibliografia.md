@@ -47,6 +47,23 @@
 -   [Urdinez & Cruz Labrín: AnalizaR Datos
     Políticos](https://arcruz0.github.io/libroadp/index.html)
 
+## Bibliografía sobre Web Scraping con R
+
+-   [Bradley & James: Web Scraping Using
+    R](https://journals.sagepub.com/doi/full/10.1177/2515245919859535) -
+    [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/WebScraping0.pdf)
+
+-   [Doguku & Çetinkaya-Rundel:
+    NLP-Suite](https://www.tandfonline.com/doi/full/10.1080/10691898.2020.1787116) -
+    [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/WebScraping2.pdf)
+
+-   [Thota & Elmasri:
+    NLP-Suite](https://dl.acm.org/doi/fullHtml/10.1145/3453892.3461333) -
+    [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/WebScraping1.pdf)
+
 ## Bibliografía sobre ciencias sociales computacionales para el análisis de la conflictividad
 
 -   [Deutschmann et.al: Computational Conflict
