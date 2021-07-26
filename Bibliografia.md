@@ -49,11 +49,15 @@
 ## Bibliografía sobre ciencias sociales computacionales para el análisis de la conflictividad
 
 -   [Deutschmann et.al: Computational Conflict
-    Research](https://link.springer.com/book/10.1007/978-3-030-29333-8)
+    Research](https://link.springer.com/book/10.1007/978-3-030-29333-8) -
+    [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/Deutschmann.pdf)
 
 -   [Franzosi:
     NLP-Suite](https://github.com/NLP-Suite/NLP-Suite/wiki/About)
 
 -   [Franzosi: What’s in a text? Bridging the gap between quality and
     quantity in the digital
-    era](https://link.springer.com/article/10.1007/s11135-020-01067-6)
+    era](https://link.springer.com/article/10.1007/s11135-020-01067-6) -
+    [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/Franzosi.pdf)
