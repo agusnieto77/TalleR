@@ -12,10 +12,11 @@ paquetes de tidyverse. Sabremos qué hacen y como aplicarlo.
 ### Aquí van a encontrar algunos recursos muy útiles para realizar minería de texto en R o cualquier otro lenguaje de programación
 
 Un recurso imprescindible para trabajar con cadenas de caracteres son
-llamadas expresiones regulares. “Las expresiones regulares son patrones
-utilizados para encontrar una determinada combinación de caracteres
-dentro de una cadena de texto. Las expresiones regulares proporcionan
-una manera muy flexible de buscar o reconocer cadenas de texto”
+las llamadas expresiones regulares. “Las expresiones regulares son
+patrones utilizados para encontrar una determinada combinación de
+caracteres dentro de una cadena de texto. Las expresiones regulares
+proporcionan una manera muy flexible de buscar o reconocer cadenas de
+texto”
 ([Wikipedia](https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular)).
 
 #### Hoja de trucos para RegEx en R con las funciones del paquete stringr de tidyverse
