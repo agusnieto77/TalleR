@@ -6,9 +6,12 @@ en [Stack Overflow](https://es.stackoverflow.com/).
 
 ### [Hojas de trucos](https://github.com/agusnieto77/TalleR/tree/main/recursos/chuletas_es_r.pdf)
 
+Es útil para darnos una idea sobre las funciones de los principales
+paquetes de tidyverse. Sabremos qué hacen y como aplicarlo.
+
 ### Aquí van a encontrar algunos recursos muy útiles para realizar minería de texto en R o cualquier otro lenguaje de programación
 
-Un recurso prescindible para trabajar con cadenas de caracteres son
+Un recurso imprescindible para trabajar con cadenas de caracteres son
 llamadas expresiones regulares. “Las expresiones regulares son patrones
 utilizados para encontrar una determinada combinación de caracteres
 dentro de una cadena de texto. Las expresiones regulares proporcionan
