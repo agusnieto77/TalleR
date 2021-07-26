@@ -501,7 +501,7 @@ Ahora nos toca avanzar en otro de los enfoque para desarrollar web scraping. Cua
 
 Este paquete, junto con `rvest`, nos permite scrapear páginas dinámicas. Hay que tener en cuenta que este enfoque falla más y es más lento.
 
-```{r rselenium, warning=FALSE, message=FALSE}
+```{r rselenium, message=FALSE, warning=FALSE}
 # Pueden copiar y pegar o descargarlo desde RStudio con esta línea de comando:
 # utils::download.file("https://estudiosmaritimossociales.org/ejercicio03.R", "ejercicio03.R")
 
@@ -518,7 +518,7 @@ require(RSelenium)
 
 # Descargamos los binarios, iniciamos el controlador y obtenemos el objeto cliente.
 
-servidor <- RSelenium::rsDriver(browser = "firefox", port = 4542L) # iniciar un servidor y un navegador de Selenium
+servidor <- RSelenium::rsDriver(browser = "firefox", port = 5499L) # iniciar un servidor y un navegador de Selenium
 
 cliente <- servidor$client                                         # objeto 'cliente' (objeto que contiene un vínculo dinámico con el servidor)
 
@@ -527,7 +527,7 @@ cliente$navigate("https://www.lanacion.com.ar/politica")           # cargamos la
 
 # Ahora debemos encontrar el botón de carga y hacemos clic sobre él.
 
-VerMas <- cliente$findElement(using = "xpath", "//*[(@id = 'verMas')] //a") # Encontramos el botón
+VerMas <- cliente$findElement(using = "css selector", ".col-12.--loader") # Encontramos el botón
 
 
 for (i in 1:10){                # abrimos función for() para reiterar n veces la acción (clic)
@@ -548,7 +548,7 @@ ln_sec_pol <- html_data %>%                                        # obtenemos l
   
   rvest::read_html() %>%                                           # leemos el objeto html_data con la función read_html()
   
-  rvest::html_nodes(".cuerpo h2 a") %>%                            # ubicamos los tags de los links a las notas
+  rvest::html_nodes("h2.com-title.--xs a.com-link") %>%                            # ubicamos los tags de los links a las notas
   
   rvest::html_attr("href") %>%                                     # extraemos los links de las notas
   
