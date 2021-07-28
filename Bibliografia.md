@@ -60,6 +60,12 @@
     [en
     PDF](https://estudiosmaritimossociales.org/Data_TalleR/WebScraping2.pdf)
 
+-   [Khalil & Fakir: RCrawler: An R package for parallel web crawling
+    and
+    scraping](https://www.sciencedirect.com/science/article/pii/S2352711017300110) -
+    [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/RCrawler.pdf)
+
 -   [Krotov & Tennyson: Web Scraping in the R Language: A
     Tutorial](https://aisel.aisnet.org/jmwais/vol2021/iss1/5/) - [en
     PDF](https://estudiosmaritimossociales.org/Data_TalleR/WebScraping5.pdf)
