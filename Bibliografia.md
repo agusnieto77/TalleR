@@ -86,6 +86,13 @@
 
 ## Bibliografía sobre ciencias sociales computacionales para el análisis de la conflictividad
 
+-   [Albrieu & Palazzo: Categorización de conflictos sociales en el
+    ámbito de los recursos naturales: un estudio de las actividades
+    extractivas mediante la minería de
+    textos](https://www.cepal.org/es/publicaciones/45952-categorizacion-conflictos-sociales-ambito-recursos-naturales-un-estudio) -
+    [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/Palazzo2.pdf)
+
 -   [Deutschmann et.al: Computational Conflict
     Research](https://link.springer.com/book/10.1007/978-3-030-29333-8) -
     [en
@@ -109,6 +116,12 @@
 -   [Olsson et.al: Text Categorization for Conflict Event
     Annotation](https://aclanthology.org/2020.aespen-1.5/) - [en
     PDF](https://estudiosmaritimossociales.org/Data_TalleR/2020.aespen-1.5.pdf)
+
+-   [Palazzo: Midiendo los costos sociales de la abundancia en Recursos
+    Naturales: Una nueva herramienta
+    estadística](https://www.redsudamericana.org/recursos-naturales-desarrollo/midiendo-los-costos-sociales-de-la-abundancia-en-recursos-naturales) -
+    [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/Palazzo1.pdf)
 
 -   [Steinert-Threlkeld & Joo: Protest Event Data from Geolocated Social
     Media
