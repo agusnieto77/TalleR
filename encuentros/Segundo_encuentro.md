@@ -26,11 +26,9 @@ información véase [tidyverse.org](https://www.tidyverse.org/).
 
     install.packages("tidyverse")
 
-
     # Un modo alternativo es instalar sólo rvest:
 
     install.packages("rvest")
-
 
     # También se puede instalar la versión de desarrollo de GitHub. 
     # Esta es la más actualizada. 
@@ -319,11 +317,11 @@ idéntico al contenido en la ventana de fondo rojo.
 Como hemos visto, la función `read_html()` lee documentos HTML que están
 on-line y que están off-line, literales y no-literales
 
-### Tópico `html_nodes`
+### Tópico `html_elements`
 
 #### Funciones para seleccionar nodos de un documento HTML
 
-`html_nodes()` `html_node()` `html_element()` `html_elements()`
+`html_element()` `html_elements()`
 
 Son funciones para extraer con facilidad fragmentos de documentos HTML
 mediante los selectores `XPath` y `CSS`. Los selectores CSS son
@@ -349,8 +347,8 @@ Por acá dejamos dos recursos para interiorizarse más en la *inspección
 de elementos*: en
 [chrome](https://developers.google.com/web/tools/chrome-devtools/inspect-styles?hl=es)
 y en
-[mozilla](ttps://developer.mozilla.org/es/docs/Tools/Page_Inspecto). Y
-por acá dejamos una breve introducción a los [elementos
+[mozilla](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
+Y por acá dejamos una breve introducción a los [elementos
 html.](https://rvest.tidyverse.org/articles/harvesting-the-web.html)
 
 ##### Soporte de selector CSS
@@ -362,9 +360,9 @@ R del paquete *cssselect* de
 en algunos casos. La extensión *SelectorGadget* citada más arriba
 también realiza esta función.
 
-Importante | En los últimos días se actualizaron y renombraron algunas
+Importante | En los últimos meses se actualizaron y renombraron algunas
 funciones del paquete `rvest`. Es el caso de `html_node()` y
-`html_nodes()`. Estas dos funciones están siendo suplantadas por las
+`html_nodes()`. Estas dos funciones están fueron suplantadas por las
 funciones `html_element()` y `html_elements()`. Igualmente, por ahora,
 las cuatro funciones están vigentes.
 
@@ -413,8 +411,8 @@ de si desea utilizar un selector CSS o XPath 1.0.
 ##### Ejemplos
 
 En estos ejemplos concatenamos las dos funciones vistas hasta aquí:
-`read_html()` y `html_nodes()`. También haremos uso de la función `%>%`
-del paquete `magrittr`.
+`read_html()` y `html_elements()`. También haremos uso de la función
+`%>%` del paquete `magrittr`.
 
     # Cargamos el paquete rvest
 
@@ -438,9 +436,9 @@ del paquete `magrittr`.
 
     # Leemos todos los elementos etiquetados con 'a'
 
-    (html_nodes(elpais, "a"))
+    (html_elements(elpais, "a"))
 
-    ## {xml_nodeset (325)}
+    ## {xml_nodeset (331)}
     ##  [1] <a href="https://elpais.com/">El País</a>
     ##  [2] <a href="https://www.mozilla.org/es-ES/firefox/new/">Mozilla Firefox</a>
     ##  [3] <a href="https://www.microsoft.com/es-es/edge">Microsoft Edge</a>
@@ -465,94 +463,94 @@ del paquete `magrittr`.
 
     # Leemos todos los elementos etiquetados con 'h2' y 'a'
 
-    (html_nodes(elpais, "h2 a "))
+    (html_elements(elpais, "h2 a "))
 
-    ## {xml_nodeset (92)}
-    ##  [1] <a href="/internacional/2021-07-22/biden-ultima-sanciones-contra-cuba-po ...
-    ##  [2] <a href="/opinion/2021-07-22/encarcelar-patria-y-vida.html">Encarcelar P ...
-    ##  [3] <a href="/ciencia/2021-07-22/la-forma-de-los-ladrillos-basicos-de-la-vid ...
-    ##  [4] <a href="/deportes/2021-07-22/argentina-apuesta-por-el-agua-y-el-fuego.h ...
-    ##  [5] <a href="/deportes/2021-07-22/cesado-el-director-de-la-ceremonia-de-aper ...
-    ##  [6] <a href="/deportes/juegos-olimpicos/2021-07-22/espana-encalla-en-el-debu ...
-    ##  [7] <a href="/deportes/juegos-olimpicos/2021-07-22/el-oro-que-le-falta-a-dan ...
-    ##  [8] <a href="/sociedad/2021-07-22/china-rechaza-otra-visita-de-la-oms-a-wuha ...
-    ##  [9] <a href="/sociedad/2021-07-22/el-incendio-dixie-gana-10000-hectareas-en- ...
-    ## [10] <a href="/sociedad/2021-07-21/grandes-farmaceuticas-anuncian-un-acuerdo- ...
-    ## [11] <a href="/mexico/economia/2021-07-22/el-precio-del-gas-domestico-y-de-lo ...
-    ## [12] <a href="/internacional/2021-07-22/carlos-ruiz-massieu-la-asuncion-de-cr ...
-    ## [13] <a href="/tecnologia/2021-07-22/un-nuevo-fallo-de-un-proveedor-en-la-nub ...
-    ## [14] <a href="/ciencia/2021-07-22/asi-es-marte-por-dentro.html">Así es Marte  ...
-    ## [15] <a href="/sociedad/2021-07-22/terror-e-impunidad-contra-los-garifunas-de ...
-    ## [16] <a href="/cultura/2021-07-22/el-surrealista-fracaso-de-luis-bunuel-y-man ...
-    ## [17] <a href="https://smoda.elpais.com/celebrities/andie-macdowell-canas-cann ...
-    ## [18] <a href="/cultura/2021-07-22/una-elefanta-para-rembrandt.html">Una elefa ...
-    ## [19] <a href="/gente/2021-07-22/mena-suvari-desvela-su-historia-de-abusos-sex ...
-    ## [20] <a href="/gente/2021-07-22/el-principe-jorge-comienza-a-descubrir-que-le ...
+    ## {xml_nodeset (93)}
+    ##  [1] <a href="/internacional/2021-07-28/la-toma-de-posesion-de-pedro-castillo ...
+    ##  [2] <a href="/deportes/juegos-olimpicos/2021-07-28/simone-biles-no-buscara-s ...
+    ##  [3] <a href="/internacional/2021-07-28/ee-uu-alerta-contra-el-incremento-del ...
+    ##  [4] <a href="/deportes/juegos-olimpicos/2021-07-28/julio-mayora-gana-la-meda ...
+    ##  [5] <a href="/mexico/2021-07-28/mexico-se-reencuentra-en-la-goleada-contra-s ...
+    ##  [6] <a href="/deportes/juegos-olimpicos/2021-07-28/el-ejemplo-refugiado-somo ...
+    ##  [7] <a href="/mexico/2021-07-28/alemania-despoja-de-la-medalla-a-los-aguerri ...
+    ##  [8] <a href="/internacional/2021-07-28/miles-de-migrantes-haitianos-permanec ...
+    ##  [9] <a href="/economia/2021-07-28/el-juez-ve-indicios-suficientes-para-lleva ...
+    ## [10] <a href="/sociedad/2021-07-28/ee-uu-vuelve-a-recomendar-el-uso-de-mascar ...
+    ## [11] <a href="/internacional/2021-07-27/ee-uu-congela-su-cooperacion-con-guat ...
+    ## [12] <a href="/sociedad/2021-07-27/karadima-el-sacerdote-que-simbolizo-los-ab ...
+    ## [13] <a href="/cultura/2021-07-28/el-primer-informe-cientifico-sobre-el-ecceh ...
+    ## [14] <a href="/internacional/2021-07-28/unesco-declara-patrimonio-mundial-al- ...
+    ## [15] <a href="/ciencia/2021-07-28/el-primer-animal-que-habito-la-tierra-unas- ...
+    ## [16] <a href="/mexico/2021-07-27/lorenzo-vigas-la-fuerza-del-cine-latinoameri ...
+    ## [17] <a href="/cultura/2021-07-28/james-frey-quiero-rendir-tributo-a-esas-nov ...
+    ## [18] <a href="/cultura/2021-07-28/las-verdaderas-raices-que-inspiraron-a-van- ...
+    ## [19] <a href="/icon/cultura/2021-07-28/el-culebron-detras-de-la-saga-bond-un- ...
+    ## [20] <a href="/ciencia/2021-07-28/la-mutacion-que-cambio-la-historia-de-las-m ...
     ## ...
 
     # Leemos todos los elementos etiquetados con 'figure', 'a' e 'img'
 
-    (html_nodes(elpais, "figure a img"))
+    (html_elements(elpais, "figure a img"))
 
     ## {xml_nodeset (2)}
-    ## [1] <img src="https://imagenes.elpais.com/resizer/hoBaArwUkRIYnPvnw4O_A2nVfn8 ...
-    ## [2] <img src="https://imagenes.elpais.com/resizer/xapN-wpd0SgrPDwihY_35Atz61Y ...
+    ## [1] <img src="https://imagenes.elpais.com/resizer/E62p9wPStSVKINgWsLqOAAp7M-A ...
+    ## [2] <img src="https://imagenes.elpais.com/resizer/wDtMO7lUaUXSpfi_mpdCFNwrUv0 ...
 
     # Ahora repetimos, pero esta vez hacemos uso de magrittr '%>%' 
     # para encadenar líneas de código.
     # Leemos todos los elementos etiquetados con 'h2' y 'a'
 
-    elpais %>% html_nodes("h2 a")
+    elpais %>% html_elements("h2 a")
 
-    ## {xml_nodeset (92)}
-    ##  [1] <a href="/internacional/2021-07-22/biden-ultima-sanciones-contra-cuba-po ...
-    ##  [2] <a href="/opinion/2021-07-22/encarcelar-patria-y-vida.html">Encarcelar P ...
-    ##  [3] <a href="/ciencia/2021-07-22/la-forma-de-los-ladrillos-basicos-de-la-vid ...
-    ##  [4] <a href="/deportes/2021-07-22/argentina-apuesta-por-el-agua-y-el-fuego.h ...
-    ##  [5] <a href="/deportes/2021-07-22/cesado-el-director-de-la-ceremonia-de-aper ...
-    ##  [6] <a href="/deportes/juegos-olimpicos/2021-07-22/espana-encalla-en-el-debu ...
-    ##  [7] <a href="/deportes/juegos-olimpicos/2021-07-22/el-oro-que-le-falta-a-dan ...
-    ##  [8] <a href="/sociedad/2021-07-22/china-rechaza-otra-visita-de-la-oms-a-wuha ...
-    ##  [9] <a href="/sociedad/2021-07-22/el-incendio-dixie-gana-10000-hectareas-en- ...
-    ## [10] <a href="/sociedad/2021-07-21/grandes-farmaceuticas-anuncian-un-acuerdo- ...
-    ## [11] <a href="/mexico/economia/2021-07-22/el-precio-del-gas-domestico-y-de-lo ...
-    ## [12] <a href="/internacional/2021-07-22/carlos-ruiz-massieu-la-asuncion-de-cr ...
-    ## [13] <a href="/tecnologia/2021-07-22/un-nuevo-fallo-de-un-proveedor-en-la-nub ...
-    ## [14] <a href="/ciencia/2021-07-22/asi-es-marte-por-dentro.html">Así es Marte  ...
-    ## [15] <a href="/sociedad/2021-07-22/terror-e-impunidad-contra-los-garifunas-de ...
-    ## [16] <a href="/cultura/2021-07-22/el-surrealista-fracaso-de-luis-bunuel-y-man ...
-    ## [17] <a href="https://smoda.elpais.com/celebrities/andie-macdowell-canas-cann ...
-    ## [18] <a href="/cultura/2021-07-22/una-elefanta-para-rembrandt.html">Una elefa ...
-    ## [19] <a href="/gente/2021-07-22/mena-suvari-desvela-su-historia-de-abusos-sex ...
-    ## [20] <a href="/gente/2021-07-22/el-principe-jorge-comienza-a-descubrir-que-le ...
+    ## {xml_nodeset (93)}
+    ##  [1] <a href="/internacional/2021-07-28/la-toma-de-posesion-de-pedro-castillo ...
+    ##  [2] <a href="/deportes/juegos-olimpicos/2021-07-28/simone-biles-no-buscara-s ...
+    ##  [3] <a href="/internacional/2021-07-28/ee-uu-alerta-contra-el-incremento-del ...
+    ##  [4] <a href="/deportes/juegos-olimpicos/2021-07-28/julio-mayora-gana-la-meda ...
+    ##  [5] <a href="/mexico/2021-07-28/mexico-se-reencuentra-en-la-goleada-contra-s ...
+    ##  [6] <a href="/deportes/juegos-olimpicos/2021-07-28/el-ejemplo-refugiado-somo ...
+    ##  [7] <a href="/mexico/2021-07-28/alemania-despoja-de-la-medalla-a-los-aguerri ...
+    ##  [8] <a href="/internacional/2021-07-28/miles-de-migrantes-haitianos-permanec ...
+    ##  [9] <a href="/economia/2021-07-28/el-juez-ve-indicios-suficientes-para-lleva ...
+    ## [10] <a href="/sociedad/2021-07-28/ee-uu-vuelve-a-recomendar-el-uso-de-mascar ...
+    ## [11] <a href="/internacional/2021-07-27/ee-uu-congela-su-cooperacion-con-guat ...
+    ## [12] <a href="/sociedad/2021-07-27/karadima-el-sacerdote-que-simbolizo-los-ab ...
+    ## [13] <a href="/cultura/2021-07-28/el-primer-informe-cientifico-sobre-el-ecceh ...
+    ## [14] <a href="/internacional/2021-07-28/unesco-declara-patrimonio-mundial-al- ...
+    ## [15] <a href="/ciencia/2021-07-28/el-primer-animal-que-habito-la-tierra-unas- ...
+    ## [16] <a href="/mexico/2021-07-27/lorenzo-vigas-la-fuerza-del-cine-latinoameri ...
+    ## [17] <a href="/cultura/2021-07-28/james-frey-quiero-rendir-tributo-a-esas-nov ...
+    ## [18] <a href="/cultura/2021-07-28/las-verdaderas-raices-que-inspiraron-a-van- ...
+    ## [19] <a href="/icon/cultura/2021-07-28/el-culebron-detras-de-la-saga-bond-un- ...
+    ## [20] <a href="/ciencia/2021-07-28/la-mutacion-que-cambio-la-historia-de-las-m ...
     ## ...
 
     # Leemos todos los elementos etiquetados con 'figure', 'a' e 'img'
 
-    elpais %>% html_nodes("figure a img")
+    elpais %>% html_elements("figure a img")
 
     ## {xml_nodeset (2)}
-    ## [1] <img src="https://imagenes.elpais.com/resizer/hoBaArwUkRIYnPvnw4O_A2nVfn8 ...
-    ## [2] <img src="https://imagenes.elpais.com/resizer/xapN-wpd0SgrPDwihY_35Atz61Y ...
+    ## [1] <img src="https://imagenes.elpais.com/resizer/E62p9wPStSVKINgWsLqOAAp7M-A ...
+    ## [2] <img src="https://imagenes.elpais.com/resizer/wDtMO7lUaUXSpfi_mpdCFNwrUv0 ...
 
-    # Cuando la función html_nodes() se aplica a una lista de nodos, devuelve todos los nodos coincidentes 
+    # Cuando la función html_elements() se aplica a una lista de nodos, devuelve todos los nodos coincidentes 
 
-    html_nodes(elpais, "a") %>% html_nodes("img")
+    html_elements(elpais, "a") %>% html_elements("img")
 
     ## {xml_nodeset (2)}
-    ## [1] <img src="https://imagenes.elpais.com/resizer/hoBaArwUkRIYnPvnw4O_A2nVfn8 ...
-    ## [2] <img src="https://imagenes.elpais.com/resizer/xapN-wpd0SgrPDwihY_35Atz61Y ...
+    ## [1] <img src="https://imagenes.elpais.com/resizer/E62p9wPStSVKINgWsLqOAAp7M-A ...
+    ## [2] <img src="https://imagenes.elpais.com/resizer/wDtMO7lUaUXSpfi_mpdCFNwrUv0 ...
 
-    # Por su parte la función html_node() sin la 's', devuelve el primer nodo coincidente. # Si no hay nodos coincidentes, devuelve un nodo "faltante".
+    # Por su parte la función html_element() sin la 's', devuelve el primer nodo coincidente. # Si no hay nodos coincidentes, devuelve un nodo "faltante".
 
-    html_node(elpais, "a")
+    html_element(elpais, "a")
 
     ## {html_node}
     ## <a href="https://elpais.com/">
 
     ## Para seleccionar un elemento o elementos en posiciones específicas usamos '[[.]]' o '[.]'
 
-    html_nodes(elpais, css = "a")[20:29]
+    html_elements(elpais, css = "a")[20:29]
 
     ## {xml_nodeset (10)}
     ##  [1] <a href="https://plus.elpais.com/perfil/baja/">Derechos y baja</a>
@@ -568,7 +566,7 @@ del paquete `magrittr`.
 
     # Ahora repetimos el código pero cambiamos el parámetro 'css' por el parámetro 'xpath'
 
-    html_nodes(elpais, xpath = "//a")[20:29]
+    html_elements(elpais, xpath = "//a")[20:29]
 
     ## {xml_nodeset (10)}
     ##  [1] <a href="https://plus.elpais.com/perfil/baja/">Derechos y baja</a>
@@ -669,9 +667,9 @@ Un vector de caracteres de la misma longitud que x
 ##### Ejemplos
 
 En estos ejemplos concatenamos las tres funciones vistas hasta aquí:
-`read_html()`, `html_nodes()` y `html_text()`. Haremos uso de la función
-`%>%` del paquete `magrittr` y también de algunas otras funciones de los
-paquetes base de R y de `rvest` (versión desarrollo).
+`read_html()`, `html_elements()` y `html_text()`. Haremos uso de la
+función `%>%` del paquete `magrittr` y también de algunas otras
+funciones de los paquetes base de R y de `rvest` (versión desarrollo).
 
     # Cargamos el paquete rvest
 
@@ -697,7 +695,7 @@ paquetes base de R y de `rvest` (versión desarrollo).
     # Por defecto, html_texto() lee tanto los espacios en blanco (&nbsp;) correctos
     # como los espacios en blanco repetidos. Veamos:
 
-    writeLines(texto1 <- html %>% html_nodes("p") %>% html_text())
+    writeLines(texto1 <- html %>% html_elements("p") %>% html_text())
 
     ## Esto        es        un        párrafo.
     ##     Esta        es otra oración.Esto debería comenzar en una nueva línea.
@@ -872,9 +870,10 @@ tibble. Cuando se aplica a varios elementos o un documento,
 ##### Ejemplos
 
 En estos ejemplos concatenamos las tres de las cuatro funciones vistas
-hasta aquí: `read_html()`, `html_nodes()` y `html_table()`. Haremos uso
-de la función `%>%` del paquete `magrittr` y también de algunas otras
-funciones de los paquetes base de R y de `rvest` (versión desarrollo).
+hasta aquí: `read_html()`, `html_elements()` y `html_table()`. Haremos
+uso de la función `%>%` del paquete `magrittr` y también de algunas
+otras funciones de los paquetes base de R y de `rvest` (versión
+desarrollo).
 
     # Cargamos el paquete rvest
 
@@ -897,7 +896,7 @@ funciones de los paquetes base de R y de `rvest` (versión desarrollo).
 
     # Leemos la tabla con las funciones para tablas del paquete rvest
 
-    tabla_1 %>% html_nodes("table") %>% html_table() %>% .[[1]]
+    tabla_1 %>% html_elements("table") %>% html_table() %>% .[[1]]
 
     ## # A tibble: 3 x 2
     ##   `Col A` `Col B`
@@ -1031,7 +1030,7 @@ codificación “html\_encoding\_guess”.
 
     # Leemos un archivo html con mala codificación que viene incluido en el paquete
 
-    (read_html(system.file("html-ex", "bad-encoding.html", package = "rvest")) %>% html_nodes("p") %>% html_text() %>% html_encoding_guess())
+    (read_html(system.file("html-ex", "bad-encoding.html", package = "rvest")) %>% html_elements("p") %>% html_text() %>% html_encoding_guess())
 
     ##     encoding language confidence
     ## 1 ISO-8859-2       ro       0.35
@@ -1044,13 +1043,13 @@ codificación “html\_encoding\_guess”.
     # Dos codificaciones válidas, sólo una de ellas es correcta
     # "ISO-8859-1"
 
-    read_html(system.file("html-ex", "bad-encoding.html", package = "rvest"), encoding = "ISO-8859-1") %>% html_nodes("p") %>% html_text()
+    read_html(system.file("html-ex", "bad-encoding.html", package = "rvest"), encoding = "ISO-8859-1") %>% html_elements("p") %>% html_text()
 
     ## [1] "Émigré cause célèbre déjà vu."
 
     #"ISO-8859-2"
 
-    read_html(system.file("html-ex", "bad-encoding.html", package = "rvest"), encoding = "ISO-8859-2") %>% html_nodes("p") %>% html_text()
+    read_html(system.file("html-ex", "bad-encoding.html", package = "rvest"), encoding = "ISO-8859-2") %>% html_elements("p") %>% html_text()
 
     ## [1] "Émigré cause célcbre déjr vu."
 
@@ -1063,7 +1062,7 @@ codificación “html\_encoding\_guess”.
     # Reparamos una oración erróneamente codificada
     # "EmigrÃ¡ y BogotÃ¡ tienen tilde en la Ã¡"
 
-    read_html("https://estudiosmaritimossociales.org/encoding__error.html", encoding = "UTF-8") %>% html_nodes("p") %>% html_text()
+    read_html("https://estudiosmaritimossociales.org/encoding__error.html", encoding = "UTF-8") %>% html_elements("p") %>% html_text()
 
     ## [1] "Emigrá y Bogotá tienen tilde en la á"
 
@@ -1266,7 +1265,7 @@ relativa.
     ##   <field> (text) q: Maradona
     ##   <field> (submit) btnG: Buscar con Google
     ##   <field> (submit) btnI: Me siento con sue...
-    ##   <field> (hidden) iflsig: AINFCbYAAAAAYPnGc...
+    ##   <field> (hidden) iflsig: AINFCbYAAAAAYQGvF...
     ##   <field> (hidden) gbv: 1
 
 ### Tópico `html_session`
@@ -1304,7 +1303,7 @@ Un objeto de sesión responde a una combinación de métodos httr y html:
 utiliza funciones del paquete
 [httr](https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html)
 como `cookies()`, `headers()` y `status_code()` para acceder a las
-propiedades de la solicitud; y `html_nodes()` para acceder al html.
+propiedades de la solicitud; y `html_elements()` para acceder al html.
 
 ##### Argumentos
 
@@ -1582,3 +1581,5 @@ selecciona un botón en función de su posición relativa.
 
 -   [Package `rvest`. Nuevas funciones en
     desarrollo.](https://rvest.tidyverse.org/news/index.html)
+
+## [Guía para el segundo encuentro (29/07)](https://github.com/agusnieto77/TalleR/blob/main/encuentros/Segundo_encuentro_1.md)

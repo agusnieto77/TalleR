@@ -14,7 +14,7 @@ visibilizada en la prensa digital.
 -   [Ir a los
     Scripts](https://github.com/agusnieto77/TalleR/tree/main/scripts)
 
--   [Ir a la bibliografía
+-   [Ir a la Bibliografía
     recomendada](https://github.com/agusnieto77/TalleR/blob/main/Bibliografia.md)
 
 ## Grabación de los encuentros
