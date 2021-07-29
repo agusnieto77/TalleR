@@ -20,4 +20,7 @@ visibilizada en la prensa digital.
 ## Grabación de los encuentros
 
 -   [Video del 1er encuentro (jueves
-    22/07)](https://www.youtube.com/watch?v=rdqbaU2oFw0)
+    22/07)](https://youtu.be/rdqbaU2oFw0)
+    
+-   [Video del 2do encuentro (jueves
+    29/07)](https://youtu.be/Ks2A6rqrgEo)
