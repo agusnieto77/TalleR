@@ -113,6 +113,17 @@
     era](https://github.com/chrisghai/protest-event-detection) - [en
     PDF](https://estudiosmaritimossociales.org/Data_TalleR/chris_ghai_thesis.pdf)
 
+-   [Nardulli et.al: Graphing the grammar of motives in National
+    Security Strategies: Cultural interpretation, automated text
+    analysis and the drama of global
+    politics](https://doi.org/10.1177/0081175015581378) - [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/nardulli2015.pdf)
+
+-   [Mhor et.al: A Progressive Supervised-learning Approach to
+    Generating Rich Civil Strife
+    Data](https://doi.org/10.1016/j.poetic.2013.08.003) - [en
+    PDF](https://estudiosmaritimossociales.org/Data_TalleR/mhor2013.pdf)
+
 -   [Olsson et.al: Text Categorization for Conflict Event
     Annotation](https://aclanthology.org/2020.aespen-1.5/) - [en
     PDF](https://estudiosmaritimossociales.org/Data_TalleR/2020.aespen-1.5.pdf)
