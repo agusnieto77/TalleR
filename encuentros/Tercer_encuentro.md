@@ -35,7 +35,7 @@ dplyr de tidyverse.
 Veamos un ejemplo aún más acotado:
 
     # bajar el script completo
-    utils::download.file("https://estudiosmaritimossociales.org/ejercicio04.R", "ejercicio04.R")
+    utils::download.file("https://estudiosmaritimossociales.org/Data_TalleR/ejercicio04.R", "ejercicio04.R")
     # cargar paquetes
     require(tidyverse)
     # creamos una base

@@ -75,4 +75,4 @@ Tabla_notas %>% mutate(p_conf = str_count(titulo, paste0(dicc_conf, collapse = '
 # guardamos la tabla
 saveRDS(Tabla_notas,'./Tabla_notas.rds')
 # bajamos el ejercicio 5
-utils::download.file("https://estudiosmaritimossociales.org/ejercicio05.R", "ejercicio05.R")
+utils::download.file("https://estudiosmaritimossociales.org/Data_TalleR/ejercicio05.R", "ejercicio05.R")
