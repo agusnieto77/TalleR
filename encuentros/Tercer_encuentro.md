@@ -318,7 +318,7 @@ lemmas que refieren y no refieren a notas sobre conflictos. Veamos.
     # guardamos la tabla
     saveRDS(Tabla_lemas,'./Tabla_lemas.rds')
 
-Hasta aquí una breve introducción. En en encuentro del jueves 04/08
+Hasta aquí una breve introducción. En en encuentro del jueves 05/08
 veremos todo esto con más profundidad.
 
 ### En construcción… 🛠
