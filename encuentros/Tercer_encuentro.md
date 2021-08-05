@@ -335,6 +335,17 @@ veremos todo esto con más profundidad.
 -   [Package `tidytext`. Una
     introducción.](https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html)
 
+## Documentación sobre `udpipe`
+
+-   [Package `udpipe`. Manual en
+    pdf.](https://cran.r-project.org/web/packages/udpipe/udpipe.pdf)
+
+-   [Package `udpipe`. Su repositorio en
+    GitHub.](https://github.com/bnosac/udpipe)
+
+-   [Package `udpipe`. Su
+    web.](https://bnosac.github.io/udpipe/en/index.html)
+
 ## Bibliografía
 
 -   [Algo reciente sobre análisis de texto con R](https://smltar.com/)
