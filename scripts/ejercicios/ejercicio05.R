@@ -1,5 +1,14 @@
-########-----Paquetes--------##########
-require(tidyverse) # paquete de paquetes (gglopt, dplyr, etc.)
+########-----Paquetes--------###########
+# instalamos los paquetes si es que ya no los tenemos instalados 
+# lista de paquetes requeridos para correr el script
+paquetes_a_instalar <- c("tidyverse", "quanteda", "textreuse", "lubridate", 
+                         "tidytext", "udpipe", "spacyr", "SnowballC", "tm")
+# lista de paquetes faltantes
+paquetes_faltantes <- paquetes_a_instalar[!(paquetes_a_instalar %in% installed.packages()[,"Package"])]
+# orden para instalar solo los paquetes faltantes 
+if(length(paquetes_faltantes)) install.packages(paquetes_faltantes)
+# activamos los paquetes
+require(tidyverse) # paquete de paquetes (gglopt2, dplyr, etc.)
 require(quanteda)  # para corpus y matrices texto~documento
 require(textreuse) # para comparar documentos
 require(lubridate) # para series temporales
@@ -184,8 +193,8 @@ es_model <- udpipe_load_model(es_model$file_model)
 # lematización con tildes
 # ejemplo simple
 texto_ejemplo <- c("Los municipales piden un aumento de salarios",
-                   "El movimiento de mujeres realiza una protesta en el centro de la ciudad")
-ejemplo_lema <- udpipe_annotate(es_model, x = texto_ejemplo)
+                   "El movimiento de mujeres realizó una protesta en el centro de la ciudad")
+ejemplo_lema <- udpipe_annotate(es_model, x =  iconv(texto_ejemplo, to = 'UTF-8'))
 as.data.frame(ejemplo_lema) %>% as_tibble() %>% select(token,lemma,upos,feats) %>% 
   anti_join(tibble(lemma = c(tm::stopwords(kind='es'))))
 # lematizamos el listado de palabras
@@ -249,15 +258,19 @@ lemmas_udpipe_ascii <- udpipe_annotate(es_model, x = notas_norm_keylemmas$palabr
 # spacy_download_langmodel("es_core_news_md")
 # cargamos el modelo es
 spacy_initialize(model = "es_core_news_md")#es_core_news_md
+# un ejemplo acotado
+spacy_parse(corpus('El Sindicato realizó una manifestación violenta en el centro de la ciudad de Córdoba.',
+                   docnames = 'doc-1'))
 # analizamos con spacyR las notas
 (txt_id_nota_spacyR <- spacy_parse(txt_id_nota, 
             pos = TRUE,
-            tag = TRUE,
+            tag = FALSE,
             lemma = TRUE,
             entity = TRUE,
             dependency = TRUE,
-            nounphrase = TRUE,
-            multithread = TRUE) %>% as_tibble())
+            nounphrase = FALSE,
+            multithread = FALSE) %>% 
+    as_tibble() %>% select(-head_token_id))
 # saveRDS(txt_id_nota_spacyR,'./data/txt_id_nota_spacyR.rds')
 #
 # Documentación
