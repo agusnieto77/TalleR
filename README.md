@@ -33,3 +33,6 @@ visibilizada en la prensa digital.
 
 -   [Video del 2do encuentro (jueves
     29/07)](https://youtu.be/Ks2A6rqrgEo)
+
+-   [Video del 3er encuentro (jueves
+    05/08)](https://youtu.be/u7mK1ktYL08)
