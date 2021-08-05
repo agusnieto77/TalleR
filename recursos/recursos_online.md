@@ -39,3 +39,4 @@ Para practicar un poco:
 -   [Sobre los
     ‘upos’](https://universaldependencies.org/u/pos/index.html)
 -   [Sobre los ‘feats’](https://universaldependencies.org/docs/sl/feat/)
+-   [Sobre los ‘dep\_rel’](https://universaldependencies.org/u/dep/)
