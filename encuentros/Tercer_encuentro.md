@@ -34,6 +34,9 @@ dplyr de tidyverse.
 
 Veamos un ejemplo aún más acotado:
 
+    # bajar el script completo
+    utils::download.file("https://estudiosmaritimossociales.org/ejercicio04.R", "ejercicio04.R")
+    # cargar paquetes
     require(tidyverse)
     # creamos una base
     (Tabla <- tibble(fecha=c('02/02/2021','09/04/2021','02/07/2021','02/07/2021','02/07/2021',NA,NA), 
@@ -92,11 +95,11 @@ Veamos un ejemplo aún más acotado:
     (Tabla <- Tabla %>% mutate(id = row_number(), .before = fecha))
 
     ## # A tibble: 3 x 3
-    ##      id fecha     titulo                                                        
-    ##   <int> <chr>     <chr>                                                         
-    ## 1     1 02/02/20~ El clima            en Mar del            Plata https://www.l~
-    ## 2     2 09/04/20~ Los    trabajadores        estatales estan            en huel~
-    ## 3     3 02/07/20~ @lacapitalmdq El sindicato docente__ declaro un paro por tiem~
+    ##      id fecha      titulo                                                       
+    ##   <int> <chr>      <chr>                                                        
+    ## 1     1 02/02/2021 El clima            en Mar del            Plata https://www.~
+    ## 2     2 09/04/2021 Los    trabajadores        estatales estan            en hue~
+    ## 3     3 02/07/2021 @lacapitalmdq El sindicato docente__ declaro un paro por tie~
 
     # guardamos la tabla
     saveRDS(Tabla,'./Tabla.rds')
@@ -316,7 +319,7 @@ lemmas que refieren y no refieren a notas sobre conflictos. Veamos.
     ## 3 doc3   sindicato docente declaro paro tiempo indeterminado      6
 
     # guardamos la tabla
-    saveRDS(Tabla_lemas,'./Tabla_lemas.rds')
+    saveRDS(Tabla_notas,'./Tabla_notas.rds')
 
 Hasta aquí una breve introducción. En en encuentro del jueves 05/08
 veremos todo esto con más profundidad.
