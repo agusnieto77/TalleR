@@ -33,3 +33,9 @@ Para practicar un poco:
     R (2)](http://griverorz.net/big-data/06-text-analysis/01-intro-regex.nb.html)
 -   [regex con
     R (3)](https://www.diegocalvo.es/expresiones-regulares-en-r/)
+
+## Otro recurso es el referido a las abreviaturas del etiquetado POS (Parts Of Speech)
+
+-   [Sobre los
+    ‘upos’](https://universaldependencies.org/u/pos/index.html)
+-   [Sobre los ‘feats’](https://universaldependencies.org/docs/sl/feat/)

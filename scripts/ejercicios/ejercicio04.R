@@ -9,8 +9,8 @@ require(udpipe)
 (Tabla <- tibble(fecha=c('02/02/2021','09/04/2021','02/07/2021','02/07/2021','02/07/2021',NA,NA), 
                  titulo=c('El clima            en Mar del            Plata https://www.lacapitalmdp.com/',
                           'Los    trabajadores        estatales estan            en huelga @lacapitalmdq',
-                          '@lacapitalmdq El sindicato docente__ declaro un paro por tiempo indeterminado', 
-                          '@lacapitalmdq El sindicato docente__ declaro un paro por tiempo indeterminado', 
+                          '@lacapitalmdq El sindicato docente__ declaró un paro por tiempo indeterminado', 
+                          '@lacapitalmdq El sindicato docente__ declaró un paro por tiempo indeterminado', 
                           'El clima            en Mar del            Plata https://www.lacapitalmdp.com/',
                           NA, NA)))
 # eliminamos los valores perdidos 
@@ -57,7 +57,7 @@ es_model <- udpipe_load_model(es_model$file_model)
 # cargamos la base
 Tabla <- readRDS('./Tabla.rds')
 # lematizamos
-(Tabla_lemas <- udpipe_annotate(es_model, x = Tabla$titulo_limpio))
+(Tabla_lemas <- udpipe_annotate(es_model, x = iconv(Tabla$titulo_limpio, to = 'UTF-8')))
 # lo pasamos a formato data frame
 (Tabla_lemas <- as.data.frame(Tabla_lemas) %>% select(doc_id,token,lemma,upos,feats) %>% 
     anti_join(tibble(token = c('en','el','El','un','por','del','Los','de','Mar','Plata'))))
