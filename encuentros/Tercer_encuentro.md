@@ -324,4 +324,17 @@ lemmas que refieren y no refieren a notas sobre conflictos. Veamos.
 Hasta aquí una breve introducción. En en encuentro del jueves 05/08
 veremos todo esto con más profundidad.
 
-### En construcción… 🛠
+## Documentación sobre `tidytext`
+
+-   [Package `tidytext`. Manual en
+    pdf.](https://cran.r-project.org/web/packages/tidytext/tidytext.pdf)
+
+-   [Package `tidytext`. Su repositorio en
+    GitHub.](https://github.com/juliasilge/tidytext)
+
+-   [Package `tidytext`. Una
+    introducción.](https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html)
+
+## Bibliografía
+
+-   [Algo reciente sobre análisis de texto con R](https://smltar.com/)
