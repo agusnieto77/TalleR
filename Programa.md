@@ -153,7 +153,7 @@ Dudas y consultas sobre lo visto en el tercer encuentro. Análisis
 profundo del corpus: filtros y sub-corpus (sobre notas referidas a
 eventos de protesta). Ajuste de las palabras vacías con un diccionario
 personalizado. Eliminación de notas repetidas. Elaboración de resúmenes
-con palabas clave, etc. Análisis exploratorio de los datos normalizados
+con palabras clave, etc. Análisis exploratorio de los datos normalizados
 con paquetes de visualización: ggplot2 y sf. Armado de índices de
 conflictividad. Prácticas de codeo en vivo (sincrónicas). Dudas y
 consultas de lo ejercitado durante el encuentro.
