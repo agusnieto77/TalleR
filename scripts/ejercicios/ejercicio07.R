@@ -1366,7 +1366,7 @@ fig_7_a /
 # Mapas -------------------------------------------------------------------
 
 # cargamos los datos vectoriales espaciales
-provincias <- readRDS("./provincias.rds")
+provincias <- readRDS(url("https://estudiosmaritimossociales.org/Data_TalleR/provincias.rds","rb"))
 
 # establecemos el sistema de referencias de las coordenadas
 st_crs(provincias) <- 4326
