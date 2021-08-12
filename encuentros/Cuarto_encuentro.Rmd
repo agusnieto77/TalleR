@@ -1,0 +1,54 @@
+---
+title: "Primer encuentro"
+author: "Agustín Nieto"
+date: "22/7/2021"
+output:
+  md_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Una introducción al análisis computacional de eventos de protesta 
+
+Llegados a este punto, ya tiene un conocimiento básico de cómo hacer web scraping en R con el paquete rvest. Ahora nos toca avanzar en el procesamiento computacional del material extraído de los portales web de noticias. Pero, antes de pasar al análisis del contenido, es necesario eliminar las notas duplicadas. Aquí vamos a repasar algo de lo que vimos en el encuentro anterior. Después vamos a introducirnos en los distintos enfoques que se pueden utilizar para realizar la clasificación de las notas. Finalmente, no adentraremos en en análisis computacional de los eventos de protesta. 
+
+## Eliminación de notas duplicadas
+
+
+
+```{r, warning=FALSE, message=FALSE, out.width='80%', fig.align='center'}
+require(tidyverse)
+require(udpipe)
+# bajamos el modelo para español 
+es_model <- udpipe_download_model(language = "spanish")
+# lo activamos 
+es_model <- udpipe_load_model(es_model$file_model)
+# cargamos la base
+Tabla <- readRDS('./Tabla.rds')
+# lematizamos
+(Tabla_lemas <- udpipe_annotate(es_model, x = Tabla$titulo_limpio))
+# lo pasamos a formato data frame
+(Tabla_lemas <- as.data.frame(Tabla_lemas) %>% select(doc_id,token,lemma,upos,feats) %>% 
+  anti_join(tibble(token = c('en','el','El','un','por','del','Los','de','Mar','Plata'))))
+# guardamos la tabla
+saveRDS(Tabla_lemas,'./Tabla_lemas.rds')
+```
+
+## Clasificación de notas 
+
+Después de la extracción masiva de notas periodísticas publicadas en la web, una de las tareas más importantes y tediosas es la clasificación de las notas, según su contenido refiera o no a eventos de protesta. Para evitar tener que desarrollar esta tarea a ojo, se pueden aplicar distintas formas de clasificación automática: diccionarios, algoritmos de aprendizaje supervisado y algoritmos de aprendizaje no supervisado. 
+
+### Clasificación de notas en base a diciconarios
+
+#### El diccionario
+
+### Clasificación de notas en base a algoritmos de aprendizaje supervisado
+
+### Clasificación de notas en base a algoritmos de aprendizaje no supervisado
+
+### Armado de índices de conflictividad
+
+### Visualización
+
+## En construcción... 🛠
