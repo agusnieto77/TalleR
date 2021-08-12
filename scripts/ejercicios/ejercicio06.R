@@ -7,8 +7,8 @@
 #
 # instalamos los paquetes solo si no los tenemos instalados 
 # lista de paquetes requeridos para correr el script
-paquetes_a_instalar <- c("tidyverse", "quanteda", "textreuse", "lubridate", "caret","seededlda",
-                         "tidytext", "udpipe", "spacyr", "tm", "quanteda.textmodels","randomForest")
+paquetes_a_instalar <- c("tidyverse", "quanteda", "textreuse", "lubridate", "caret","seededlda","e1071",
+                         "tidytext", "udpipe", "spacyr", "tm", "quanteda.textmodels","randomForest","ROCR")
 
 # lista de paquetes faltantes
 paquetes_faltantes <- paquetes_a_instalar[!(paquetes_a_instalar %in% installed.packages()[,"Package"])]
@@ -30,6 +30,7 @@ require(udpipe)              # para lematizar
 require(spacyr)              # para lematizar
 require(ROCR)                # para curva ROC
 require(tm)                  # para corpus y matrices texto~documento
+require(e1071)
 
 # Cargamos las notas ------------------------------------------------------
 
@@ -573,9 +574,9 @@ Hierarchical_Clustering <- hclust(dist_cos, method = "ward.D2")
 # determinamos dos grupos de ramificaciones
 Hierarchical_Clustering_2 <- cutree(Hierarchical_Clustering, k = 2) 
 
-# escalamos los datos como putos en un plan.
+# escalamos los datos como putos en un plano.
 # Escalamiento Multidimensional Clásico (MDS)
-puntos <- cmdscale(dist.matrix, k = 2) 
+puntos <- cmdscale(dist_cos, k = 2) 
 
 # vizualizamos
 plot(puntos, main = 'Agrupamiento Jerárquico', col = as.factor(Hierarchical_Clustering_2), 
@@ -584,7 +585,7 @@ plot(puntos, main = 'Agrupamiento Jerárquico', col = as.factor(Hierarchical_Clu
 
 # incorporamos la predicción como nueva variable en la base
 (notas_clas_4 <- notas_norm_key_words_lemmas_entities_acc %>% 
-    mutate(clase_sh = as.vector(slave.hierarchical),
+    mutate(clase_sh = as.vector(Hierarchical_Clustering_2),
            clase_sh = ifelse(clase_sh == 2, 'no_conflicto', 'conflicto'),
            correspondencia = ifelse(clase == clase_sh, 'SI', 'NO')))
 
@@ -650,7 +651,7 @@ table(dfm_notas$topico)
 # incorporamos la predicción como nueva variable en la base
 (notas_clas_5 <- notas_norm_key_words_lemmas_entities_acc %>% 
     mutate(clase_tm = dfm_notas$topico,
-           clase_tm = ifelse(clase_tm == 'topic2', 'no_conflicto', 'conflicto'),
+           clase_tm = ifelse(clase_tm == 'topic1', 'no_conflicto', 'conflicto'),
            correspondencia = ifelse(clase == clase_tm, 'SI', 'NO')))
 
 # vemos su rendimiento
