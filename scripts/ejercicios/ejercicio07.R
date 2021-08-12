@@ -1,15 +1,40 @@
-# Cargar librerías -------------------------------------------------------------------------
 
-require(tidyverse)
-require(rvest)
-require(lubridate)
-require(qdapRegex)
-require(ggalt)
+# Instalación y activación de paquetes ------------------------------------
+
+# instalamos los paquetes solo si no los tenemos instalados 
+# lista de paquetes requeridos para correr el script
+paquetes_a_instalar <- c("tidyverse", "extrafont", "readxl", "lubridate", "qdapRegex","ggalt",
+                         "sf", "ggspatial", "patchwork")
+
+# lista de paquetes faltantes
+paquetes_faltantes <- paquetes_a_instalar[!(paquetes_a_instalar %in% installed.packages()[,"Package"])]
+
+# orden para instalar solo los paquetes faltantes 
+if(length(paquetes_faltantes)) install.packages(paquetes_faltantes)
+
+# activamos los paquetes
+require(tidyverse)  # paquete de paquetes
+require(extrafont)  # fuentes
+require(readxl)     # exportar e importar .xlsx
+require(lubridate)  # datos temporales
+require(qdapRegex)  # expresiones regulares
+require(ggalt)      # suavizado de líneas
+require(sf)         # datos espaciales
+require(ggspatial)  # datos espaciales
+require(patchwork)  # visualización
 
 # Normalizar datos fechas y eliminar duplicaciones --------------------------------------------------------
 
 RP_Tok_notas <- readRDS(url("https://estudiosmaritimossociales.org/modulo_3/notas_rev_puerto.rds","rb")) %>% 
   mutate(fecha = dmy(fecha)) %>% distinct(link, .keep_all = TRUE)
+
+#vemos su estructura
+
+glimpse(RP_Tok_notas)
+
+#imprimimos una nota cualquiera
+
+as.character(RP_Tok_notas[6100,4])
 
 #limpieza
 
@@ -31,7 +56,7 @@ RP_Tok_notas$nota_limpia <- gsub("Video----at-.mp", "", RP_Tok_notas$nota_limpia
 RP_Tok_notas$nota_limpia <- gsub("la Banca", "la Banca 25", RP_Tok_notas$nota_limpia)
 
 
-###################----PuertosXProvincias----###################
+###################----Puertos-x-Provincias----###################
 ## Buenos Aires
 RP_Tok_notas$nota_limpia <- gsub("Buenos Aires","Buenos_Aires",RP_Tok_notas$nota_limpia)
 
@@ -231,6 +256,7 @@ RP_Tok_notas$nota_limpia <- gsub("Río Gallegos","Río_Gallegos",RP_Tok_notas$no
 
 
 #########################-----Organizaciones-----#########################
+
 #minúsculas
 RP_Tok_notas$nota_limpia <- str_to_lower(RP_Tok_notas$nota_limpia, locale = "es")
 
@@ -726,39 +752,20 @@ RP_Tok_notas$nota_limpia <- gsub("cámara de armadores de bahía_blanca","cámar
 RP_Tok_notas$nota_limpia <- gsub("cámara de diputados","cámara_diputados",RP_Tok_notas$nota_limpia)
 RP_Tok_notas$nota_limpia <- gsub("cámara federal","cámara_federal",RP_Tok_notas$nota_limpia)
 
-#########--------búsqueda
-
-#stringr::str_view_all(RP_Tok_notas$nota_limpia, "Deseado")
-#stringr::str_view_all(RP_Tok_notas$nota, "Deseado")
-
-#glimpse(RP_Tok_notas[2538,6])
-
-#str(RP_Tok_notas[139, ]$nota_limpia, nchar.max = 10000)
-
-#str_view_all(RP_Tok_notas[403, ]$nota_limpia, " paró")
-
-#RP_Tok_notas[570, ]$nota_limpia
-
-########-----Guardar---------##########
-
+########-----Guardar---------##########################
 saveRDS(RP_Tok_notas, "RP_notas_normalizadas_2020.rds")
-
-# Normalizar datos fechas y eliminar duplicaciones --------------------------------------------------------
-
-#notas_rev_puerto <- notas_rev_puerto %>% mutate(nota_minuscula = str_to_lower(nota))
-
-#stringr::str_view_all(RP_Tok_notas$nota_limpia, "Deseado")
+#######################################################-
 
 #Tipo_conflictos
-Dicc_Conflic <- read.csv2("../MineriaDatos/lexicos/dicc_conflic_acciones.csv", stringsAsFactors = F)
+Dicc_Conflic <- read.csv2("https://estudiosmaritimossociales.org/Data_TalleR/dicc_conflic_acciones.csv", stringsAsFactors = F)
 string_conflic <- as_vector(Dicc_Conflic$palabra)
 
 #puertos_y_provincias
-Dicc_localidad <- readxl::read_xlsx("../MineriaDatos/lexicos/dicc_puertos.xlsx")
+Dicc_localidad <- read.csv2("https://estudiosmaritimossociales.org/Data_TalleR/dicc_puertos.csv", stringsAsFactors = F, fileEncoding="UTF-8-BOM")
 string_localidad <- as_vector(Dicc_localidad$ciudad_puerto)
 
 #org_y_motivos
-Dicc_org_mot <- readxl::read_xlsx("../MineriaDatos/lexicos/dicc_org_mot.xlsx")
+Dicc_org_mot <- read.csv2("https://estudiosmaritimossociales.org/Data_TalleR/dicc_org_mot.csv", stringsAsFactors = F, fileEncoding="UTF-8-BOM")
 string_org_mot <- as_vector(Dicc_org_mot$termino)
 
 #str_conflic
@@ -775,9 +782,6 @@ string_reun_e_par <- Dicc_Conflic %>% filter(nominacion_agrup == "reun_par"|nomi
 string_protestas <- Dicc_Conflic %>% filter(nominacion_agrup == "protestas"|nominacion_agrup == "motines"|nominacion_agrup == "rebeliones"|nominacion_agrup == "revueltas") %>% select(1) %>% as_vector()
 string_comunicacionales <- Dicc_Conflic %>% filter(nominacion_agrup == "anuncios"|nominacion_agrup == "est_alertas"|nominacion_agrup == "comunicados"|nominacion_agrup == "amenazas"|nominacion_agrup == "petición"|nominacion_agrup == "denuncias") %>% select(1) %>% as_vector()
 string_otros_conflic <- Dicc_Conflic %>% filter(nominacion_agrup == "boicots"|nominacion_agrup == "carnereadas"|nominacion_agrup == "sabotajes") %>% select(1) %>% as_vector()
-#string_enfrentamientos <- Dicc_Conflic %>% filter(nominacion_agrup == "enfrentamientos") %>% select(1) %>% as_vector()
-#string_denuncias <- Dicc_Conflic %>% filter(nominacion_agrup == "denuncias") %>% select(1) %>% as_vector()
-
 
 ##str_puertos
 string_bsas <- Dicc_localidad %>% filter(region == "Bs_As") %>% select(1) %>% as_vector()
@@ -795,6 +799,7 @@ string_otros <- Dicc_org_mot %>% filter(nom == "gremial" | nom == "convenio") %>
 
 RP_Tok_notas$nota_sin_punct <- gsub("[[:punct:]]"," ",RP_Tok_notas$nota_limpia)
 
+# contamos las menciones de palabras conflictivas, organizaciones, puertos y regiones
 RP_Tok_notas_Conflictos <- RP_Tok_notas %>% 
   mutate(caracteres = str_count(nota_sin_punct, pattern = ""),
          palabras = sapply(strsplit(nota_sin_punct, " "), length),
@@ -812,21 +817,6 @@ RP_Tok_notas_Conflictos <- RP_Tok_notas %>%
          protestas = str_count(nota_sin_punct, paste(string_protestas, collapse = "|")),
          comunicacionales = str_count(nota_sin_punct, paste(string_comunicacionales, collapse = "|")),
          otros_conf = str_count(nota_sin_punct, paste(string_otros_conflic, collapse = "|")),
-         #denuncias = str_count(nota_sin_punct, paste(string_denuncias, collapse = "|")),
-         #desalojos = str_count(nota_sin_punct, paste(string_desalojos, collapse = "|")),
-         ##
-         #enfrentamientos = str_count(nota_sin_punct, paste(string_enfrentamientos, collapse = "|")),
-         #ataques = ifelse(str_detect(nota_sin_punct, paste(stringP, collapse = "|")), 1, 0),
-         #bloqueos = ifelse(str_detect(nota_sin_punct, paste(stringP, collapse = "|")), 1, 0),
-         #concil_obl = ifelse(str_detect(nota_sin_punct, paste(stringP, collapse = "|")), 1, 0),
-         #cortes = ifelse(str_detect(nota_sin_punct, paste(stringP, collapse = "|")), 1, 0),
-         #denuncias = ifelse(str_detect(nota_sin_punct, paste(stringP, collapse = "|")), 1, 0),
-         #desalojos = ifelse(str_detect(nota_sin_punct, paste(stringP, collapse = "|")), 1, 0),
-         #enfrentamientos = ifelse(str_detect(nota_sin_punct, paste(stringP, collapse = "|")), 1, 0),
-         #huelga = ifelse(str_detect(nota_sin_punct, paste(stringP, collapse = "|")), 1, 0),
-         #manif_call = ifelse(str_detect(nota_sin_punct, paste(stringP, collapse = "|")), 1, 0),
-         #ocupaciones = ifelse(str_detect(nota_sin_punct, paste(stringP, collapse = "|")), 1, 0),
-         #reun_e_par = ifelse(str_detect(nota_sin_punct, paste(stringP, collapse = "|")), 1, 0),
          #apartado puertos y regiones 
          patagonia = str_count(nota_sin_punct, paste(string_patagonia, collapse = "|")),
          bsas = str_count(nota_sin_punct, paste(string_bsas, collapse = "|")),
@@ -856,13 +846,15 @@ RP_Tok_notas_Conflictos <- RP_Tok_notas %>%
                                          palabras_conflictivas %in% 7:10 ~ "Alta",
                                          palabras_conflictivas > 10 ~ "Muy alta")))
 
-RP_Tok_notas_Conflictos$grup_frec <- factor(RP_Tok_notas_Conflictos$grup_frec, levels = levels(RP_Tok_notas_Conflictos$grup_frec)[ c( 6,5,2,3,1,4)])
+# reorganizamos las etiquetas de los factores 
+RP_Tok_notas_Conflictos$grup_frec <- factor(RP_Tok_notas_Conflictos$grup_frec, 
+                                            levels = levels(RP_Tok_notas_Conflictos$grup_frec)[c(6,5,2,3,1,4)])
 
-#RP_Tok_notas_Conflictos$fecha <- date(dmy(RP_Tok_notas_Conflictos$fecha))
-
+# estimamos la región a la que hace mayor referencia la nota
 RP_Tok_notas_Conflictos <- RP_Tok_notas_Conflictos %>% 
   mutate(patagonia_bsas = patagonia - bsas)
 
+# etiquetamos las notas según refieran principalmente a una u otra región
 RP_Tok_notas_Conflictos <- RP_Tok_notas_Conflictos %>% 
   mutate(regiones = case_when(
     patagonia_bsas > 0 ~ "Patagónicos",
@@ -870,10 +862,12 @@ RP_Tok_notas_Conflictos <- RP_Tok_notas_Conflictos %>%
     soip > 0 ~ "Bonaerenses",
     simape > 0 ~ "Bonaerenses"))
 
+# reemplazamos los valores perdidos 
 RP_Tok_notas_Conflictos <- RP_Tok_notas_Conflictos %>% 
   mutate(regiones = case_when(is.na(regiones) ~ "s_d",
                               TRUE ~ as.character(regiones)))
 
+# etiquetamos las notas según refieran principalmente a una u otra provincia
 RP_Tok_notas_Conflictos <- RP_Tok_notas_Conflictos %>% 
   mutate(provincias = case_when(
     patagonia_bsas < 0 ~ "Buenos Aires",
@@ -885,23 +879,29 @@ RP_Tok_notas_Conflictos <- RP_Tok_notas_Conflictos %>%
     santa_cruz > 0 ~ "Santa Cruz"
   ))
 
+# reemplazamos los valores perdidos 
 RP_Tok_notas_Conflictos <- RP_Tok_notas_Conflictos %>% 
   mutate(provincias = case_when(is.na(provincias) ~ "s_d",
                                 TRUE ~ as.character(provincias)))
 
+# etiquetamos como notas que refieren o no a conflictos 
+# según la frecuencia de palabras conflictivas
 RP_Tok_notas_Conflictos <- RP_Tok_notas_Conflictos %>% 
   mutate(notas_c_s_conf2 = case_when(palabras_conflictivas == 0 ~ "NSC",
                                      palabras_conflictivas == 1 ~ "NSC",
                                      palabras_conflictivas > 1 ~ "NCC"))
 
+# creamos un índice de palabras conflictivas por nota
 RP_Tok_notas_Conflictos <- RP_Tok_notas_Conflictos %>% 
   mutate(indice_palabras_conflic = (palabras_conflictivas/palabras)*100)
 
+# dejamos solo dos decimales 
 RP_Tok_notas_Conflictos$indice_palabras_conflic <- round(RP_Tok_notas_Conflictos$indice_palabras_conflic, 2)
 
-tabla <- RP_Tok_notas_Conflictos %>% 
-  count(indice_palabras_conflic)
+# creamos una tabla con la frecuencia de los índices de conflictividad
+(tabla <- RP_Tok_notas_Conflictos %>% count(indice_palabras_conflic))
 
+# creamos una variable que agrupe los índices de palabras conflictivas por nota
 RP_Tok_notas_Conflictos <- RP_Tok_notas_Conflictos %>% 
   mutate(intensidad = as.factor(case_when(indice_palabras_conflic == 0.00 ~ "Sin conflicto",
                                           between(indice_palabras_conflic, 0.01,0.20) ~ "Sin conflicto",
@@ -911,56 +911,99 @@ RP_Tok_notas_Conflictos <- RP_Tok_notas_Conflictos %>%
                                           between(indice_palabras_conflic, 0.91,1.50) ~ "Alta",
                                           indice_palabras_conflic > 1.50 ~ "Muy alta")))
 
+# reorganizamos las etiquetas de los factores 
 RP_Tok_notas_Conflictos$intensidad <- factor( RP_Tok_notas_Conflictos$intensidad, levels = levels(RP_Tok_notas_Conflictos$intensidad)[ c( 6,5,2,3,1,4)])
 
-RP_Tok_notas_Conflictos %>% 
-  filter(!is.na(intensidad)) %>% 
-  count(intensidad)
+# intensidad según índice de palabras conflictivas 
+RP_Tok_notas_Conflictos %>% filter(!is.na(intensidad)) %>% count(intensidad)
 
-RP_Tok_notas_Conflictos %>% 
-  count(grup_frec)
+# contamos menciones de palabras asociadas a huelga 
+RP_Tok_notas_Conflictos %>% summarise('Huelgas + Conciliaciones'=sum(huelga)+sum(concil_obl))
 
+# guardamos
 #saveRDS(RP_Tok_notas_Conflictos, "./data/RP_notas_conflic_2020.rds")
 
+# borramos todo
+
+# cargamos la base
 #RP_Tok_notas_Conflictos <- readRDS("./data/RP_notas_conflic_2020.rds")
 
-RP_Tok_notas_Conflictos %>% count(grup_frec)
+# Gráficos ----------------------------------------------------------------
 
-RP_Tok_notas_Conflictos %>% 
-  summarise(sum(huelga)+sum(concil_obl))
+###--GRAF0--####
+# creamos un vector de notas x año
+notas_x_anio <- RP_Tok_notas_Conflictos %>% group_by(anio=year(fecha)) %>% count(anio) %>% 
+  ungroup() %>% select(n) %>% as_vector() %>% as.vector()
 
-###GRAF0
-RP_Tok_notas_Conflictos %>% 
-  group_by(year(fecha)) %>% 
+# creamos un objeto con la frec total de acciones de la consulta
+n_graf0 <- RP_Tok_notas_Conflictos %>% 
+  group_by(años = year(fecha)) %>% 
   filter(palabras_conflictivas > 2) %>% 
-  summarise(sum(palabras_conflictivas)) %>%
-  rename(años = `year(fecha)`,
-         conflictos = `sum(palabras_conflictivas)`) %>% 
+  summarise(conflictos = sum(palabras_conflictivas)) %>%
+  gather(Tipo_acciones, frec, -años) %>% 
+  summarise(sum(frec)) %>% as_vector() #6699
+
+# graficamos
+RP_Tok_notas_Conflictos %>% 
+  group_by(años = year(fecha)) %>% 
+  filter(palabras_conflictivas > 2) %>% 
+  summarise(conflictos = sum(palabras_conflictivas)) %>%
   gather(Tipo_acciones, frec, -años) %>%
-  mutate(total_notas = c(634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581)) %>% 
-  filter(años != 2020) %>% 
-  #summarise(sum(frec)) #6269
+  mutate(total_notas = notas_x_anio) %>% 
   ggplot(aes(años, frec/total_notas)) +
   geom_xspline(aes(colour = Tipo_acciones), size=2) +
   scale_color_manual(values=c("#ff396f","#396fff")) +
-  scale_x_continuous(breaks = c(2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019), expand = c(0,0.2)) +
+  scale_x_continuous(breaks = c(2009:2020), expand = c(0,0.2)) +
   scale_y_continuous(breaks = c(0,1,2), labels = c(0,1,2), limits = c(0,2.1), expand = c(0,0)) +
   theme_elegante() + 
   theme(legend.position = c(0.8, 0.8),
         legend.title = element_blank())  +
   theme(axis.text.x = element_text(vjust = 0.5)) +
-  labs(title = 'Figura III',
-       subtitle = 'Conflictividad portuaria durante el periodo 2009-2012',
-       caption = 'nº de palabras indizadas = 6269
-       Fuentes: Elaboración propia en base a datos de la Revista Puerto',
+  labs(title = 'Figura I',
+       subtitle = 'Conflictividad portuaria durante el periodo 2009-2020',
+       caption = paste0('nº de palabras indizadas = ', n_graf0,
+       '\nFuente: Elaboración propia en base a datos de la Revista Puerto'),
        y = 'Índice de conflictividad', x = NULL)
 
-###GRAF1
+###--GRAF1--####
+# creamos un objeto con la frec total de acciones de la consulta
+n_graf1 <- RP_Tok_notas_Conflictos %>% 
+  group_by(year(fecha)) %>%
+  filter(palabras_conflictivas > 2) %>% 
+  summarise(sum(huelga),
+            sum(bloqueos),
+            sum(ocupaciones),
+            sum(reun_e_par),
+            sum(cortes),
+            sum(concil_obl),
+            sum(manif_call),
+            sum(ataques),
+            sum(represion),
+            sum(comunicacionales),
+            sum(protestas),
+            sum(otros_conf),
+  ) %>%
+  rename(años = `year(fecha)`,
+         huelgas = `sum(huelga)`,
+         cortes = `sum(cortes)`,
+         conciliaciones = `sum(concil_obl)`,
+         manifestaciones = `sum(manif_call)`,
+         ataques = `sum(ataques)`,
+         bloqueos = `sum(bloqueos)`,
+         ocupaciones = `sum(ocupaciones)`,
+         reun_e_par = `sum(reun_e_par)`,
+         represiones = `sum(represion)`,
+         protestas = `sum(protestas)`,
+         otras = `sum(otros_conf)`
+  ) %>% 
+  gather(Tipo_acciones, frec, -años) %>%
+  filter(Tipo_acciones == "huelgas"|Tipo_acciones == "conciliaciones") %>% 
+  mutate(Tipo_acciones = as.factor(Tipo_acciones)) %>% 
+  mutate(Tipo_acciones = factor(Tipo_acciones, levels = c("huelgas", "conciliaciones"))) %>% 
+  mutate(total_notas = c(notas_x_anio,notas_x_anio)) %>% 
+  filter(Tipo_acciones != 'huelgas') %>% summarise(sum(frec)) %>% as_vector()
 
-#fff <- RP_Tok_notas_Conflictos %>% 
-# group_by(year(fecha)) %>% count(`year(fecha)`)
-#fff$n
-
+# graficamos
 RP_Tok_notas_Conflictos %>% 
   group_by(year(fecha)) %>%
   filter(palabras_conflictivas > 2) %>% 
@@ -994,25 +1037,58 @@ RP_Tok_notas_Conflictos %>%
   filter(Tipo_acciones == "huelgas"|Tipo_acciones == "conciliaciones") %>% 
   mutate(Tipo_acciones = as.factor(Tipo_acciones)) %>% 
   mutate(Tipo_acciones = factor(Tipo_acciones, levels = c("huelgas", "conciliaciones"))) %>% 
-  mutate(total_notas = c(634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581)) %>% 
-  filter(años != 2020) %>% 
-  #filter(Tipo_acciones != 'huelgas') %>% summarise(sum(frec))
+  mutate(total_notas = c(notas_x_anio,notas_x_anio)) %>% 
   ggplot(aes(años, (frec/total_notas)*1)) +
   geom_xspline(aes(colour = Tipo_acciones), size=2) +
   scale_color_manual(values=c("#ff396f","#396fff")) +
-  scale_x_continuous(breaks = c(2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019), expand = c(0,0.2)) +
-  scale_y_continuous(breaks = c(.0,.1,.2,.3,.4), labels = c(.0,.1,.2,.3,.4), limits = c(.0,.5), expand = c(0,0)) +
+  scale_x_continuous(breaks = c(2009:2020), expand = c(0,0.2)) +
+  scale_y_continuous(breaks = c(.0,.1,.2,.3,.4), labels = c(.0,.1,.2,.3,.4), 
+                     limits = c(.0,.5), expand = c(0,0)) +
   theme_elegante() + 
   theme(legend.position = c(0.8, 0.8),
         legend.title = element_blank())  +
   theme(axis.text.x = element_text(vjust = 0.5)) +
   labs(title = 'Figura IV',
-       subtitle = 'Movimientos huelguísticos portuarios 2009-2019',
-       caption = 'nº de palabras indizadas = 1270
-       Fuentes: Elaboración propia en base a datos de la Revista Puerto',
+       subtitle = 'Movimientos huelguísticos portuarios 2009-2020',
+       caption = paste0('nº de palabras indizadas = ', n_graf1,
+                        '\nFuente: Elaboración propia en base a datos de la Revista Puerto'),
        y = 'Índice de conflictividad', x = NULL)
 
-###GRAF2
+###--GRAF2--####
+# creamos un objeto con la frec total de acciones de la consulta
+n_graf2 <- RP_Tok_notas_Conflictos %>% 
+  group_by(year(fecha)) %>% 
+  filter(palabras_conflictivas > 2) %>% 
+  summarise(sum(huelga),
+            sum(bloqueos),
+            sum(ocupaciones),
+            sum(reun_e_par),
+            sum(cortes),
+            sum(concil_obl),
+            sum(manif_call),
+            sum(ataques),
+            sum(represion),
+            sum(comunicacionales),
+            sum(protestas),
+            sum(otros_conf)) %>%
+  rename(años = `year(fecha)`,
+         huelgas = `sum(huelga)`,
+         cortes = `sum(cortes)`,
+         conciliaciones = `sum(concil_obl)`,
+         manifestaciones = `sum(manif_call)`,
+         ataques = `sum(ataques)`,
+         bloqueos = `sum(bloqueos)`,
+         ocupaciones = `sum(ocupaciones)`,
+         reuniones = `sum(reun_e_par)`,
+         represiones = `sum(represion)`,
+         protestas = `sum(protestas)`,
+         comunicacionales = `sum(comunicacionales)`,
+         otras = `sum(otros_conf)`) %>% 
+  gather(Tipo_acciones, frec, -años) %>%
+  mutate(total_notas = rep(notas_x_anio,12)) %>% 
+  summarise(sum(frec)) %>% as_vector()
+
+# graficamos
 RP_Tok_notas_Conflictos %>% 
   group_by(year(fecha)) %>% 
   filter(palabras_conflictivas > 2) %>% 
@@ -1042,18 +1118,10 @@ RP_Tok_notas_Conflictos %>%
          comunicacionales = `sum(comunicacionales)`,
          otras = `sum(otros_conf)`) %>% 
   gather(Tipo_acciones, frec, -años) %>%
-  mutate(total_notas = c(634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,
-                         634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,
-                         634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,
-                         634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,
-                         634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,
-                         634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581)) %>% 
-  filter(años != 2020) %>% 
-  #summarise(sum(frec))
-  #filter(Tipo_acciones != "otras") %>% #5593
+  mutate(total_notas = rep(notas_x_anio,12)) %>% 
   ggplot(aes(años, frec/total_notas)) +
   geom_xspline(aes(colour = Tipo_acciones), size=2) +
-  scale_x_continuous(breaks = c(2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019)) +
+  scale_x_continuous(breaks = c(2009:2020)) +
   facet_wrap(~ Tipo_acciones, scales = "free") +
   theme_elegante() + 
   theme(strip.text = element_text(face="bold"),
@@ -1061,15 +1129,27 @@ RP_Tok_notas_Conflictos %>%
         axis.text.y = element_text(size=rel(.8)),
         legend.position = "none")  +
   theme(axis.text.x = element_text(angle=90, vjust = 0.5)) +
-  labs(title = 'Figura V',
-       subtitle = 'Conflictividad laboral en los puertos pesqueros argentinos según tipo de acciones 2009-2019',
-       caption = 'nº de palabras indizadas = 6279
-       Fuentes: Elaboración propia en base a datos de la Revista Puerto',
+  labs(title = 'Figura III',
+       subtitle = 'Conflictividad laboral en los puertos pesqueros argentinos según tipo de acciones 2009-2020',
+       caption = paste0('nº de palabras indizadas = ', n_graf2,
+                        '\nFuente: Elaboración propia en base a datos de la Revista Puerto'),
        y = 'Índice de conflictividad', x = NULL)
 
-#NOTA: hacer dos más desagregados por region - BsAs / Patag.
+###--GRAF3--####
+# creamos un objeto con la frec total de acciones de la consulta
+n_graf3 <- RP_Tok_notas_Conflictos %>% 
+  group_by(year(fecha)) %>% 
+  filter(palabras_conflictivas > 2) %>% 
+  summarise(sum(patagonia),
+            sum(bsas)) %>%
+  rename(años = `year(fecha)`,
+         Patagónicos = `sum(patagonia)`,
+         Bonaerenses = `sum(bsas)`) %>% 
+  gather(Puertos, frec, -años) %>%
+  mutate(total_notas = c(notas_x_anio,notas_x_anio)) %>% 
+  summarise(sum(frec)) %>% as_vector
 
-#GRAF3
+# plot 1
 (figura_4_a <- RP_Tok_notas_Conflictos %>% 
     group_by(year(fecha)) %>% 
     filter(palabras_conflictivas > 2) %>% 
@@ -1079,22 +1159,20 @@ RP_Tok_notas_Conflictos %>%
            Patagónicos = `sum(patagonia)`,
            Bonaerenses = `sum(bsas)`) %>% 
     gather(Puertos, frec, -años) %>%
-    mutate(total_notas = c(634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581)) %>% 
-    filter(años != 2020) %>% 
-    #summarise(sum(frec))# 1779
-    #filter(Tipo_acciones != "otras") %>% 
+    mutate(total_notas = c(notas_x_anio,notas_x_anio)) %>% 
     ggplot(aes(años, frec/total_notas)) +
     geom_xspline(aes(colour = Puertos), size=2) +
-    scale_x_continuous(breaks = c(2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019),
-                       labels = c('09','10','11','12','13','14','15','16','17','18','19')) +
+    scale_x_continuous(breaks = c(2009:2020),
+                       labels = c('09','10','11','12','13','14','15','16','17','18','19','20')) +
     facet_wrap(~ Puertos, scales = "free") +
     theme_elegante() + 
     theme(strip.text = element_text(face="bold"),
           legend.position = "none")  +
     theme(axis.text.x = element_text(vjust = 0.5)) +
     labs(title = 'Figura VI',
-         subtitle = 'Conflictividad laboral en los puertos pesqueros argentinos según localización 2009-2019', y = NULL, x = NULL))
+         subtitle = 'Conflictividad laboral en los puertos pesqueros argentinos según localización 2009-2020', y = NULL, x = NULL))
 
+# plot 2
 (figura_4_b <- RP_Tok_notas_Conflictos %>% 
     group_by(year(fecha)) %>% 
     filter(palabras_conflictivas > 2) %>% 
@@ -1104,26 +1182,33 @@ RP_Tok_notas_Conflictos %>%
            Patagónicos = `sum(patagonia)`,
            Bonaerenses = `sum(bsas)`) %>% 
     gather(Puertos, frec, -años) %>%
-    mutate(total_notas = c(634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581)) %>% 
-    filter(años != 2020) %>% 
-    #summarise(sum(frec))# 1779
-    #filter(Tipo_acciones != "otras") %>% 
+    mutate(total_notas = c(notas_x_anio,notas_x_anio)) %>% 
     ggplot(aes(años, frec/total_notas)) +
     geom_xspline(aes(colour = Puertos), size=2) +
-    scale_x_continuous(breaks = c(2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019)) +
+    scale_x_continuous(breaks = c(2009:2020)) +
     theme_elegante() + 
     theme(strip.text = element_text(face="bold"),
           legend.position = c(0.8, 0.8))  +
     theme(axis.text.x = element_text(vjust = 0.5)) +
-    labs(caption = 'nº de palabras indizadas = 4041
-       Fuentes: Elaboración propia en base a datos de la Revista Puerto',
+    labs(caption = paste0('nº de palabras indizadas = ', n_graf3,
+                          '\nFuente: Elaboración propia en base a datos de la Revista Puerto'),
        y = NULL, x = NULL))
 
-library(patchwork)
+# imprimimos ambos gráficos
 figura_4_a /
   figura_4_b
 
-#GRAF4
+###--GRAF4--#####
+# creamos un objeto con la frec total de acciones de la consulta
+n_graf4 <- RP_Tok_notas_Conflictos %>% 
+  filter(palabras_conflictivas > 2) %>% 
+  filter(regiones != "s_d") %>% 
+  group_by(year(fecha)) %>% 
+  summarise(sum(palabras_conflictivas)) %>% 
+  summarise(sum(`sum(palabras_conflictivas)`)) %>% 
+  as_vector()
+
+# graficamos
 RP_Tok_notas_Conflictos %>% 
   filter(palabras_conflictivas > 2) %>% 
   filter(regiones != "s_d") %>%
@@ -1131,7 +1216,7 @@ RP_Tok_notas_Conflictos %>%
   summarise(sum(palabras_conflictivas)) %>% 
   ggplot(aes(`year(fecha)`, `sum(palabras_conflictivas)`)) +
   geom_xspline(aes(colour = regiones), size=2) +
-  scale_x_continuous(breaks = c(2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019)) +
+  scale_x_continuous(breaks = c(2009:2020)) +
   facet_wrap(~ regiones, scales = "free") +
   theme_minimal() + 
   theme(text = element_text(face="bold", size = 18, color = "black"),
@@ -1140,27 +1225,18 @@ RP_Tok_notas_Conflictos %>%
         legend.position = "none")  +
   theme(axis.text.x = element_text(angle=90, vjust = 0.5)) +
   theme(plot.margin = margin(0.5, 3, 0.5, 0.5, "cm")) +
-  labs(title = 'Conflictividad laboral en los puertos pesqueros argentinos 2009-2019',
+  labs(title = 'Conflictividad laboral en los puertos pesqueros argentinos 2009-2020',
        subtitle = 'Frecuencia anual de palabras relativas a conflictos según puertos pesqueros',
-       caption = 'n = 4366
-       Fuentes: Elaboración propia en base a datos de la Revista Puerto',
+       caption = paste0('nº = ', n_graf4,
+                        '\nFuente: Elaboración propia en base a datos de la Revista Puerto'),
        y = 'Índice de conflictividad', x = '', 
        face = "bold")
 
-RP_Tok_notas_Conflictos %>% 
-  filter(palabras_conflictivas > 2) %>% 
-  filter(regiones != "s_d") %>% 
-  group_by(year(fecha)) %>% 
-  summarise(sum(palabras_conflictivas)) %>% 
-  summarise(sum(`sum(palabras_conflictivas)`))
-
-
-#GRAF5 
-RP_Tok_notas_Conflictos %>% 
+###--GRAF5--####
+# creamos un objeto con la frec total de acciones de la consulta
+n_graf5 <- RP_Tok_notas_Conflictos %>% 
   group_by(year(fecha)) %>% 
   filter(palabras_conflictivas > 2) %>% 
-  #filter(patagonia > 1) %>% 
-  #filter(bsas > 1) %>% 
   summarise(sum(soip),
             sum(simape),
             sum(somu),
@@ -1175,26 +1251,61 @@ RP_Tok_notas_Conflictos %>%
          SUPA = `sum(supa)`,
          SAON = `sum(saon)`) %>% 
   gather(Sindicatos, frec, -años)  %>% 
-  mutate(total_notas = c(634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,
-                         634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,
-                         634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581)) %>% 
-  filter(años != 2020) %>% 
-  #summarise(sum(frec))# 3110
+  mutate(total_notas = rep(notas_x_anio,6)) %>% 
+  summarise(sum(frec)) %>% as_vector()
+
+# graficamos
+RP_Tok_notas_Conflictos %>% 
+  group_by(year(fecha)) %>% 
+  filter(palabras_conflictivas > 2) %>% 
+  summarise(sum(soip),
+            sum(simape),
+            sum(somu),
+            sum(stia),
+            sum(supa),
+            sum(saon)) %>%
+  rename(años = `year(fecha)`,
+         SOIP = `sum(soip)`,
+         SIMAPE = `sum(simape)`,
+         SOMU = `sum(somu)`,
+         STIA = `sum(stia)`,
+         SUPA = `sum(supa)`,
+         SAON = `sum(saon)`) %>% 
+  gather(Sindicatos, frec, -años)  %>% 
+  mutate(total_notas = rep(notas_x_anio,6)) %>% 
   ggplot(aes(años, frec/total_notas)) +
   geom_xspline(aes(colour = Sindicatos), size=2) +
-  scale_x_continuous(breaks = c(2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019)) +
+  scale_x_continuous(breaks = c(2009:2020)) +
   facet_wrap(~ Sindicatos, scales = "free") +
   theme_elegante() + 
   theme(strip.text = element_text(face="bold"), legend.position = "none")  +
   theme(axis.text.x = element_text(angle=90, vjust = 0.5)) +
   labs(title = 'Figura VIII',
-       subtitle = 'Conflictividad laboral en los puertos pesqueros argentinos según sindicatos 2009-2019',
-       caption = 'nº de palabras indizadas = 3807
-       Fuentes: Elaboración propia en base a datos de la Revista Puerto',
+       subtitle = 'Conflictividad laboral en los puertos pesqueros argentinos según sindicatos 2009-2020',
+       caption = paste0('nº de palabras indizadas = ', n_graf5,
+                        '\nFuente: Elaboración propia en base a datos de la Revista Puerto'),
        y = 'Índice de conflictividad', x = NULL, 
        face = "bold")
 
-###GRAF6
+###--GRAF6--#####
+# creamos un objeto con la frec total de acciones de la consulta
+n_graf6 <- RP_Tok_notas_Conflictos %>% 
+  group_by(year(fecha)) %>% 
+  filter(palabras_conflictivas > 2) %>% 
+  summarise(sum(salarial),
+            sum(laboral),
+            sum(despidos),
+            sum(otros_mot)) %>%
+  rename(años = `year(fecha)`,
+         salarial = `sum(salarial)`,
+         laboral = `sum(laboral)`,
+         'crisis y despidos' = `sum(despidos)`,
+         otros = `sum(otros_mot)`) %>% 
+  gather(Tipo_acciones, frec, -años) %>%
+  mutate(total_notas = c(notas_x_anio,notas_x_anio,notas_x_anio,notas_x_anio)) %>%
+  summarise(sum(frec)) %>% as_vector()
+
+# plot 1
 (fig_7_a <- RP_Tok_notas_Conflictos %>% 
     group_by(year(fecha)) %>% 
     filter(palabras_conflictivas > 2) %>% 
@@ -1208,23 +1319,21 @@ RP_Tok_notas_Conflictos %>%
            'crisis y despidos' = `sum(despidos)`,
            otros = `sum(otros_mot)`) %>% 
     gather(Tipo_acciones, frec, -años) %>%
-    mutate(total_notas = c(634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,
-                           634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581)) %>% 
-    filter(años != 2020) %>% 
-    #summarise(sum(frec)) 
+    mutate(total_notas = c(notas_x_anio,notas_x_anio,notas_x_anio,notas_x_anio)) %>% 
     ggplot(aes(años, frec/total_notas)) +
     geom_xspline(aes(colour = Tipo_acciones), size=2) +
-    scale_x_continuous(breaks = c(2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019),
-                       labels = c('09','10','11','12','13','14','15','16','17','18','19')) +
+    scale_x_continuous(breaks = c(2009:2020),
+                       labels = c('09','10','11','12','13','14','15','16','17','18','19','20')) +
     facet_wrap(~ Tipo_acciones, scales = "free", ncol = 4) +
     theme_elegante() + 
     theme(strip.text = element_text(face="bold"),
           legend.position = "none")  +
     theme(axis.text.x = element_text(angle=90, vjust = 0.5)) +
-    labs(title = 'Figura IX',
-         subtitle = 'Conflictividad laboral en los puertos pesqueros argentinos según motivos de la acción 2009-2019',
+    labs(title = 'Figura VII',
+         subtitle = 'Conflictividad laboral en los puertos pesqueros argentinos según motivos de la acción 2009-2020',
          y = NULL, x = NULL))
 
+# plot 2
 (fig_7_b <- RP_Tok_notas_Conflictos %>% 
     group_by(year(fecha)) %>% 
     filter(palabras_conflictivas > 2) %>% 
@@ -1238,69 +1347,43 @@ RP_Tok_notas_Conflictos %>%
            'crisis y despidos' = `sum(despidos)`,
            otros = `sum(otros_mot)`) %>% 
     gather(Tipo_acciones, frec, -años) %>%
-    mutate(total_notas = c(634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,
-                           634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581,634, 682, 596, 735, 686, 630, 620, 675, 637, 639, 637, 581)) %>% 
+    mutate(total_notas = c(notas_x_anio,notas_x_anio,notas_x_anio,notas_x_anio)) %>% 
     filter(años != 2020) %>% 
-    #summarise(sum(frec)) 
     ggplot(aes(años, frec/total_notas)) +
     geom_xspline(aes(colour = Tipo_acciones), size=2) +
-    scale_x_continuous(breaks = c(2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019)) +
+    scale_x_continuous(breaks = c(2009:2020)) +
     theme_elegante() + 
     theme(legend.position = c(0.8,0.8))  +
     theme(axis.text.x = element_text(vjust = 0.5)) +
-    labs(caption = 'nº de palabras indizadas = 4097
-       Fuentes: Elaboración propia en base a datos de la Revista Puerto',
+    labs(caption = paste0('nº de palabras indizadas = ', n_graf6,
+                '\nFuente: Elaboración propia en base a datos de la Revista Puerto'),
        y = NULL, x = NULL))
-library(patchwork)
+
+# imprimimos ambos gráficos
 fig_7_a /
   fig_7_b
 
-#MAPA1
-require(sf)
-require(ggspatial)
-require(tidyverse)
+# Mapas -------------------------------------------------------------------
 
-#provincias <- read_sf("C:/Users/agust/Box Sync/R/PROYECTOS/GeoQGISconR/shapes/provincias_latlong.shp")
-provincias <- read_sf("C:/Users/agusn/Google Drive/R/PROYECTOS/GeoQGISconR/shapes/provincias_latlong.shp")
+# cargamos los datos vectoriales espaciales
+provincias <- readRDS("./provincias.rds")
+
+# establecemos el sistema de referencias de las coordenadas
 st_crs(provincias) <- 4326
 
-(provinciasN <- provincias$NOMBRE)
+# renombramos un valor de la variable NOMBRE
 provincias <- provincias %>% 
   mutate(NOMBRE = case_when(NOMBRE == "Rio Negro" ~ "Río Negro",
                             TRUE ~ as.character(NOMBRE)))
 
+# nos quedamos solo con la provincias pesqueras
 prov_pesqueras <- provincias %>% 
   filter(FIRST_MIN1 == 6|FIRST_MIN1 == 26|FIRST_MIN1 == 62|FIRST_MIN1 == 78|FIRST_MIN1 == 94)
 
-(prov_pes <- prov_pesqueras$NOMBRE)
+# imprimimos el mapa
+ggplot(data = prov_pesqueras) + geom_sf(fill = "white")
 
-ggplot(data=prov_pesqueras) + 
-  geom_sf(fill="white")
-
-provincias2 <- read_sf("./shapes/provincia.shp")#pxpciadatosok
-st_crs(provincias) <- 4326
-(provinciasN2 <- provincias2$nam)
-prov_pesqueras2 <- provincias2 %>% 
-  filter(gid == 21|gid == 20|gid == 19|gid == 18|gid == 17)
-(prov_pes2 <- prov_pesqueras2$nam)
-
-(d <- RP_Tok_notas_Conflictos %>% 
-    filter(palabras_conflictivas > 2) %>% 
-    filter(provincias != "s_d") %>%
-    group_by(provincias, year(fecha)) %>% 
-    summarise(sum(palabras_conflictivas)) %>% 
-    rename(años = `year(fecha)`,
-           índice = `sum(palabras_conflictivas)`) %>% 
-    full_join(prov_pesqueras, by = c("provincias" = "NOMBRE")))
-
-d[31:37,]
-
-pobla_prov <- tibble(
-  NOMBRE = prov_pesqueras$NOMBRE,
-  poblacion = c(618989, 81315, 21643, 14183, 74752),
-  desembarques = c(471264.3, 158192.4, 14009.2, 138166.9, 15.8) # año 2013
-)
-
+###--MAP1--###----
 RP_Tok_notas_Conflictos %>% 
   filter(palabras_conflictivas > 2) %>% 
   filter(provincias != "s_d") %>%
@@ -1309,47 +1392,42 @@ RP_Tok_notas_Conflictos %>%
   rename(años = `year(fecha)`,
          índice = `sum(palabras_conflictivas)`) %>% 
   full_join(prov_pesqueras, by = c("provincias" = "NOMBRE")) %>% 
-  full_join(pobla_prov, by = c("provincias" = "NOMBRE")) %>% 
+# convertimos la base en un objeto sf (una forma estandarizada de codificar datos vectoriales espaciales)  
   st_as_sf() %>% 
   ggplot() + 
   geom_sf(data = provincias) +
   geom_sf(fill="white", data=prov_pesqueras) +
   geom_sf(aes(fill = índice)) + 
-  geom_sf_label(aes(label = índice), size = 8.5) +
+  geom_sf_label(aes(label = índice), size = 5.0) +
   scale_fill_gradient2(low = "white" , mid = "#396fff", high = "#ff396f") +
-  #annotation_scale(location = "tl") +
-  #annotation_north_arrow(location = "br", which_north = "true") +
-  annotation_scale(location = "bl", width_hint = 0.2, height = unit(0.4, "cm"), 
-                   text_pad = unit(0.15, "cm"),
-                   text_cex = 1.7,#size km
-                   tick_height = 0.6) +
-  annotation_north_arrow(height = unit(3.0, "cm"), width = unit(3.0, "cm"),
+  annotation_scale(location = "bl", width_hint = 0.2, height = unit(0.2, "cm"), 
+                   text_pad = unit(0.08, "cm"),
+                   text_cex = 0.7,
+                   tick_height = 0.3) +
+  annotation_north_arrow(height = unit(1.5, "cm"), width = unit(1.5, "cm"),
                          location = "br", which_north = "true", 
-                         #pad_x = unit(1.5, "in"), pad_y = unit(0.30, "in"),
                          style = north_arrow_fancy_orienteering) +
-  coord_sf(xlim = c(-75.0, -54.0), ylim = c(-56.0, -33.0), expand = F) +
+  coord_sf(xlim = c(-75.0, -54.0), ylim = c(-57.0, -34.0), expand = F) +
   facet_wrap(~ años,
              nrow = 2) +
-  labs(title = "Figura X",
-       subtitle = "Distribución socioterritorial de la conflictividad en los puertos pesqueros (2009-2019)",
+  labs(title = "Mapa 1",
+       subtitle = "Distribución socioterritorial de la conflictividad en los puertos pesqueros (2009-2020)",
        x = " ", y = " ") +
   theme_elegante() +
-  theme(#text = element_text(size = 34, color = "grey30"),
-    legend.position = c(0.93, 0.24),
-    legend.title = element_text(colour = "grey30", size = 32),
-    legend.text = element_text(colour = "grey30", size = 30),
+  theme(
+    legend.title = element_text(colour = "grey30", size = 16),
+    legend.text = element_text(colour = "grey30", size = 14),
     legend.key = element_blank(),
-    legend.key.size = unit(2.5, "cm"),
+    legend.key.size = unit(1.5, "cm"),
     legend.key.width = unit(2.5,"cm"),
     axis.text.x = element_text(face="bold", colour="grey30", size=rel(0.8)),
     axis.text.y = element_text(face="bold", colour="grey30", size=rel(0.8)),
     panel.spacing = unit(3, "lines"),
-    #legend.position = "bottom"
-  )
+    legend.position = "bottom"
+  ) # save w=1400 x h=1000
 
-
-#MAP2
-(map2 <- RP_Tok_notas_Conflictos %>% 
+###--MAP2--###----
+RP_Tok_notas_Conflictos %>% 
     filter(palabras_conflictivas > 2) %>% 
     filter(provincias != "s_d") %>%
     group_by(provincias, year(fecha)) %>% 
@@ -1357,8 +1435,7 @@ RP_Tok_notas_Conflictos %>%
     rename(años = `year(fecha)`,
            índice = `sum(palabras_conflictivas)`) %>% 
     full_join(prov_pesqueras, by = c("provincias" = "NOMBRE")) %>% 
-    full_join(pobla_prov, by = c("provincias" = "NOMBRE")) %>% 
-    st_as_sf() %>% 
+    st_as_sf() %>% #convertimos la base en un objeto sf
     filter(años != "2012" & años != "2020") %>% 
     mutate(índice_2 = índice) %>% 
     ggplot() + 
@@ -1366,22 +1443,19 @@ RP_Tok_notas_Conflictos %>%
     geom_sf(fill="white", data=prov_pesqueras) +
     geom_sf(aes(fill = índice_2)) + 
     geom_sf_label(aes(label = índice_2), size = 4.0, alpha = 0.8) +
-    scale_fill_gradient2(low = "white" , mid = "#396fff", high = "#ff396f") +
-    #annotation_scale(location = "tl") +
-    #annotation_north_arrow(location = "br", which_north = "true") +
+    scale_fill_gradient2(name = 'índice', low = "white" , mid = "#396fff", high = "#ff396f") +
     annotation_scale(location = "bl", width_hint = 0.2, height = unit(0.3, "cm"), 
                      text_pad = unit(0.2, "cm"),
-                     text_cex = 0.95,#size km
+                     text_cex = 0.95,
                      tick_height = 0.6) +
     annotation_north_arrow(height = unit(1, "cm"), width = unit(1, "cm"),
                            location = "br", which_north = "true", 
-                           #pad_x = unit(1.5, "in"), pad_y = unit(0.30, "in"),
                            style = north_arrow_fancy_orienteering) +
-    coord_sf(xlim = c(-75.0, -54.0), ylim = c(-57.0, -33.0), expand = F) +
+    coord_sf(xlim = c(-75.0, -54.0), ylim = c(-57.0, -34.0), expand = F) +
     facet_wrap(~ años,
                nrow = 2) +
-    labs(title = "Figura VII",
-         subtitle = "Distribución socioterritorial de la conflictividad en los puertos pesqueros (2009-2019)",
+    labs(title = "Mapa II",
+         subtitle = "Distribución socioterritorial de la conflictividad en los puertos pesqueros (2009-2020)",
          caption = "Quitamos el año 2012 por su excepcionalidad",
          x = NULL, y = NULL) +
     theme_elegante() +
@@ -1395,440 +1469,22 @@ RP_Tok_notas_Conflictos %>%
           legend.key.width = unit(0.2,"cm"),
           legend.key.height = unit(0.3,"cm"),
           legend.position = c(0.97, 0.75)
-    ))
-
-###OTRA_COSA###########################
-
-pais <- read_sf("./shapes/pxpciadatosok.shp")
-
-head(provincias, 2)
-
-ggplot(pais) + 
-  geom_sf(aes(fill = link))
-
-pais$geometry[24]
-
-
-RP_Tok_notas_Conflictos %>% count(grup_frec) %>% ggplot()+
-  geom_bar(aes(x=grup_frec, y=n), stat = "identity")
-
-RP_Tok_notas_Conflictos %>% group_by(grup_frec) %>% summarise(sum(palabras_conflictivas)) %>% ggplot()+
-  geom_bar(aes(x=grup_frec, y=`sum(palabras_conflictivas)`), stat = "identity")
-
-
-tabla_conf <- RP_Tok_notas_Conflictos %>% arrange(desc(palabras_conflictivas)) %>% filter(palabras_conflictivas > 1)
-
-tabla_conf %>% arrange(desc(palabras_conflictivas)) %>%  
-  mutate(año = lubridate:: year(fecha)) %>% group_by(año) %>% summarise(sum(palabras_conflictivas)) %>% 
-  rename(freq = `sum(palabras_conflictivas)`) %>% 
-  ggplot() +
-  geom_bar(aes(x = as.factor(año), y = freq), stat = "identity")
-
-tabla_conf %>% arrange(desc(palabras_conflictivas)) %>%  
-  mutate(año = lubridate::year(fecha)) %>% group_by(año) %>% summarise(sum(palabras_conflictivas)) %>% 
-  rename(freq = `sum(palabras_conflictivas)`) %>% 
-  ggplot() +
-  geom_line(aes(x = as.factor(año), y = freq), group = 1)
-
-tabla_conf %>% arrange(desc(palabras_conflictivas)) %>% 
-  mutate(año = lubridate:: year(fecha)) %>% group_by(año) %>% summarise(sum(palabras_conflictivas)) %>% 
-  rename(freq = `sum(palabras_conflictivas)`) %>% 
-  ggplot() +
-  geom_bar(aes(x = as.factor(año), y = freq), stat = "identity")
-
-tabla_conf %>% arrange(desc(palabras_conflictivas)) %>%  
-  mutate(año = lubridate:: year(fecha)) %>% group_by(año) %>% summarise(sum(palabras_conflictivas)) %>% 
-  rename(freq = `sum(palabras_conflictivas)`) %>% 
-  ggplot() +
-  geom_line(aes(x = as.factor(año), y = freq), group = 1)
-
-tabla_conf %>% arrange(desc(palabras_conflictivas)) %>%
-  mutate(año = lubridate:: year(fecha)) %>% group_by(año) %>% summarise(sum(palabras_conflictivas)) %>% 
-  rename(freq = `sum(palabras_conflictivas)`) %>% 
-  ggplot() +
-  geom_bar(aes(x = as.factor(año), y = freq), stat = "identity") +
-  geom_line(aes(x = as.factor(año), y = freq), size=3, colour= "red", group = 1)
-
-
-tabla_conf %>% count(palabras_conflictivas)
-
-
-#### idf
-
-library(dplyr)
-library(tidytext)
-
-RP_words <- RP_Tok_notas_Conflictos %>%
-  mutate(anio = year(fecha)) %>% 
-  #filter(anio != "2020") %>% 
-  unnest_tokens(word, titulo) %>%
-  count(anio, word, sort = TRUE) %>% 
-  filter(!word %in% tm::stopwords(kind = 'es')) %>% 
-  filter(!word %in% c('js','d','id','fjs')) %>% 
-  filter(!str_detect(word, "[[:digit:]]")) %>% 
-  filter(!word %in% c('puerto','pesca','año','twitter','garrone','nahum','wis','widgets','createelement',
-                      'document','getelementbyid','insertbefore','parentnode','platform','script','src',
-                      'wjs','twittear','function','segui','var','com')) %>% 
-  filter(nchar(word) > 2 & !nchar(word) > 19)
-
-total_words <- RP_words %>% 
-  group_by(anio) %>% 
-  summarize(total = sum(n))
-
-RP_words <- left_join(RP_words, total_words)
-
-RP_words
-
-library(ggplot2)
-
-ggplot(RP_words, aes(n/total, fill = as.factor(anio))) +
-  geom_histogram(show.legend = FALSE) +
-  xlim(NA, 0.0009) +
-  facet_wrap(~anio, ncol = 4, scales = "free_y")
-
-freq_by_rank <- RP_words %>% 
-  group_by(anio) %>% 
-  mutate(rank = row_number(), 
-         `term frequency` = n/total) %>%
-  ungroup()
-
-freq_by_rank %>% 
-  ggplot(aes(rank, `term frequency`, color = as.factor(anio))) + 
-  geom_line(size = 1.1, alpha = 0.8, show.legend = FALSE) + 
-  scale_x_log10() +
-  scale_y_log10()
-
-rank_subset <- freq_by_rank %>% 
-  filter(rank < 500,
-         rank > 10)
-
-lm(log10(`term frequency`) ~ log10(rank), data = rank_subset)
-
-freq_by_rank %>% 
-  ggplot(aes(rank, `term frequency`, color = as.factor(anio))) + 
-  geom_abline(intercept = -0.62, slope = -1.1, 
-              color = "gray50", linetype = 2) +
-  geom_line(size = 1.1, alpha = 0.8, show.legend = FALSE) + 
-  scale_x_log10() +
-  scale_y_log10()
-
-RP_tf_idf <- RP_words %>%
-  bind_tf_idf(word, anio, n)
-
-RP_tf_idf
-
-RP_tf_idf %>%
-  select(-total) %>%
-  arrange(desc(tf_idf))
-
-library(forcats)
-
-RP_tf_idf %>%
-  #summarise(sum(n))
-  group_by(anio) %>%
-  slice_max(tf_idf, n = 11) %>%
-  ungroup() %>%
-  ggplot(aes(tf_idf, fct_reorder(word, tf_idf), fill = as.factor(anio))) +
-  geom_col(show.legend = FALSE) +
-  facet_wrap(~anio, ncol = 6, scales = "free") +
-  labs(title = 'Figura XI',
-       subtitle = 'Tópicos por año según la métrica tf-idf (frecuencia de término - frecuencia inversa de documento)',
-       caption = 'nº de palabras indizadas = 37800
-       Fuentes: Elaboración propia en base a datos de la Revista Puerto (todas las notas)',
-       x = NULL, y = NULL) +
-  theme_elegante() +
-  theme(strip.text = element_text(face="bold"),
-        axis.text.x = element_text(angle = 90, size=rel(0.7)),
-        axis.text.y = element_text(size=rel(0.7)),
-        panel.spacing = unit(0.5, "lines"),
-        legend.title = element_text(colour = "grey30", size = 12, vjust = 0.5),
-        legend.text = element_text(colour = "grey30", size = 10)
-  )
-
-#### idf 2
-
-library(dplyr)
-library(tidytext)
-
-RP_words <- RP_Tok_notas_Conflictos %>%
-  mutate(anio = year(fecha)) %>% 
-  filter(palabras_conflictivas > 2) %>%
-  #filter(anio != "2020") %>% 
-  unnest_tokens(word, titulo) %>%
-  count(anio, word, sort = TRUE) %>% 
-  filter(!word %in% tm::stopwords(kind = 'es')) %>% 
-  filter(!word %in% c('js','d','id','fjs')) %>% 
-  filter(!str_detect(word, "[[:digit:]]")) %>% 
-  filter(!word %in% c('puerto','pesca','año','twitter','garrone','nahum','wis','widgets','createelement',
-                      'document','getelementbyid','insertbefore','parentnode','platform','script','src',
-                      'wjs','twittear','function','segui','var','com')) %>% 
-  filter(nchar(word) > 2 & !nchar(word) > 19)
-
-total_words <- RP_words %>% 
-  group_by(anio) %>% 
-  summarize(total = sum(n))
-
-RP_words <- left_join(RP_words, total_words)
-
-RP_words
-
-library(ggplot2)
-
-ggplot(RP_words, aes(n/total, fill = as.factor(anio))) +
-  geom_histogram(show.legend = FALSE) +
-  xlim(NA, 0.0009) +
-  facet_wrap(~anio, ncol = 4, scales = "free_y")
-
-freq_by_rank <- RP_words %>% 
-  group_by(anio) %>% 
-  mutate(rank = row_number(), 
-         `term frequency` = n/total) %>%
-  ungroup()
-
-freq_by_rank %>% 
-  ggplot(aes(rank, `term frequency`, color = as.factor(anio))) + 
-  geom_line(size = 1.1, alpha = 0.8, show.legend = FALSE) + 
-  scale_x_log10() +
-  scale_y_log10()
-
-rank_subset <- freq_by_rank %>% 
-  filter(rank < 500,
-         rank > 10)
-
-lm(log10(`term frequency`) ~ log10(rank), data = rank_subset)
-
-freq_by_rank %>% 
-  ggplot(aes(rank, `term frequency`, color = as.factor(anio))) + 
-  geom_abline(intercept = -0.62, slope = -1.1, 
-              color = "gray50", linetype = 2) +
-  geom_line(size = 1.1, alpha = 0.8, show.legend = FALSE) + 
-  scale_x_log10() +
-  scale_y_log10()
-
-RP_tf_idf <- RP_words %>%
-  bind_tf_idf(word, anio, n)
-
-RP_tf_idf
-
-RP_tf_idf %>%
-  select(-total) %>%
-  arrange(desc(tf_idf))
-
-library(forcats)
-
-RP_tf_idf %>%
-  #summarise(sum(n))
-  group_by(anio) %>%
-  slice_max(tf_idf, n = 11) %>%
-  ungroup() %>%
-  ggplot(aes(tf_idf, fct_reorder(word, tf_idf), fill = as.factor(anio))) +
-  geom_col(show.legend = FALSE) +
-  facet_wrap(~anio, ncol = 6, scales = "free") +
-  labs(title = 'Figura XII',
-       subtitle = 'Tópicos por año según la métrica tf-idf (frecuencia de término - frecuencia inversa de documento)',
-       caption = 'nº de palabras indizadas = 5933
-       Fuentes: Elaboración propia en base a datos de la Revista Puerto (solo notas referidas a conflictos)',
-       x = NULL, y = NULL) +
-  theme_elegante() +
-  theme(strip.text = element_text(face="bold"),
-        axis.text.x = element_text(angle = 90, size=rel(0.7)),
-        axis.text.y = element_text(size=rel(0.7)),
-        panel.spacing = unit(0.5, "lines"),
-        legend.title = element_text(colour = "grey30", size = 12, vjust = 0.5),
-        legend.text = element_text(colour = "grey30", size = 10)
-  )
-
-require(dplyr)
-require(gganimate)
-require(ggplot2)
-require(ggraph)
-require(igraph)
-require(lubridate)
-require(readxl)
-require(scales)
-require(stringr)
-require(tm)
-require(tidyr)
-require(tidytext)
-require(tidyverse)
-require(widyr) 
-require(zoo)
-
-RP_bigram <- RP_Tok_notas_Conflictos %>%
-  filter(year(fecha) == '2012') %>% 
-  filter(palabras_conflictivas > 2) %>% 
-  unnest_tokens(bigram, nota_limpia, token = "ngrams", n = 2)
-
-RP_bigram <- RP_bigram %>% 
-  mutate(año = year(fecha))
-
-#str_view_all(readRDS("./data/RP_notas_conflic_nuevo.rds")$nota_sin_punct, "no")
-
-RP_bigram %>%
-  count(bigram, sort = TRUE)
-
-bigrams_separated <- RP_bigram %>%
-  separate(bigram, c("palabra1", "palabra2"), sep = " ")
-
-bigrams_filtered <- bigrams_separated %>%
-  filter(!palabra1 %in% read_xlsx("./lexicos/stopwords_es.xlsx")$palabra) %>%
-  filter(!palabra2 %in% read_xlsx("./lexicos/stopwords_es.xlsx")$palabra) %>% 
-  filter(!palabra1 %in% c('js','d','id','fjs')) %>% 
-  filter(!palabra2 %in% c('diego','izquierdo','fernández','fotos')) %>% 
-  filter(!str_detect(palabra1, "[[:digit:]]")) %>% 
-  filter(!palabra1 %in% c('puerto','pesca','año','twitter','garrone','nahum','wis','widgets','createelement',
-                          'document','getelementbyid','insertbefore','parentnode','platform','script','src',
-                          'wjs','twittear','function','segui','var','com')) %>% 
-  filter(nchar(palabra1) > 2 & !nchar(palabra1) > 19) %>% 
-  filter(!palabra2 %in% c('js','d','id','fjs')) %>% 
-  filter(!palabra2 %in% c('diego','izquierdo','fernández','fotos')) %>% 
-  filter(!str_detect(palabra2, "[[:digit:]]")) %>% 
-  filter(!palabra2 %in% c('puerto','pesca','año','twitter','garrone','nahum','wis','widgets','createelement',
-                          'document','getelementbyid','insertbefore','parentnode','platform','script','src',
-                          'wjs','twittear','function','segui','var','com')) %>% 
-  filter(nchar(palabra2) > 2 & !nchar(palabra2) > 19)
-
-# nuevo bigram counts:
-bigram_counts <- bigrams_filtered %>%
-  group_by(año) %>% 
-  count(palabra1, palabra2, sort = TRUE)
-
-bigram_counts
-
-bigrams_united <- 
-  bigrams_filtered %>%
-  unite(bigram, palabra1, palabra2, sep = " ")
-
-bigrams_united
-
-bigram_tf_idf <- bigrams_united %>%
-  count(titulo, bigram) %>%
-  bind_tf_idf(bigram, titulo, n) %>%
-  arrange(desc(tf_idf))
-
-bigram_tf_idf
-
-
-# original counts
-bigram_counts
-
-# filter for only relatively common combinations
-bigram_graph <- bigram_counts %>% as.data.frame() %>% as_tibble() %>% 
-  select(2,3,4) %>% 
-  filter(n > 11) %>%
-  graph_from_data_frame()
-
-bigram_graph
-
-set.seed(2016)
-
-a <- grid::arrow(type = "closed", length = unit(.09, "inches"))
-
-ggraph(bigram_graph, layout = "fr") +
-  geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,
-                 arrow = a, end_cap = circle(.07, 'inches')) +
-  geom_node_point(color = "lightblue", size = 3) +
-  geom_node_text(aes(label = name), vjust = 0, hjust = 0, size = 4, repel = T, segment.color = NA) +
-  labs(title = 'Figura XIII',
-       subtitle = 'Red de bigramas para las noticias del año 2012 referidas a conflictos',
-       caption = 'Fuentes: Elaboración propia en base a datos de la Revista Puerto',
-       x = NULL, y = NULL) +
-  scale_x_discrete(breaks = NULL) +
-  scale_y_discrete(breaks = NULL) +
-  theme_elegante()
-
-# Thema_nuevo -------------------------------------------------------------
-
-library(extrafont)
-# for windows
-windowsFonts(sans="Raleway")
-loadfonts(device="win")
-loadfonts(device="postscript")
-
-theme_elegante <- function(base_size = 16)
-{
-  color.background = "#FFFFFF" # Chart Background
-  color.grid.major = "#D9D9D9" # Chart Gridlines
-  color.axis.text = "#666666" # 
-  color.axis.title = "#666666" # 
-  color.title = "#666666"
-  color.subtitle = "#666666"
-  strip.background.color = '#000000'
-  
-  ret <-
-    theme_bw(base_size=base_size) +
-    
-    # Set the entire chart region to a light gray color
-    theme(panel.background=element_rect(fill=color.background, color=color.background)) +
-    theme(plot.background=element_rect(fill=color.background, color=color.background)) +
-    theme(panel.border=element_rect(color=color.background)) +
-    
-    # Format the grid
-    theme(panel.grid.major=element_line(color=color.grid.major,size=.55, linetype="dotted")) +
-    theme(panel.grid.minor=element_line(color=color.grid.major,size=.55, linetype="dotted")) +
-    theme(axis.ticks=element_blank()) +
-    
-    # Format the legend, but hide by default
-    theme(legend.position="none") +
-    theme(legend.background = element_rect(fill=color.background)) +
-    theme(legend.text = element_text(size=base_size-3,color=color.axis.title)) +
-    
-    theme(strip.text.x = element_text(size=base_size,color=color.background)) +
-    theme(strip.text.y = element_text(size=base_size,color=color.background)) +
-    #theme(strip.background = element_rect(fill=strip.background.color, linetype="blank")) +
-    theme(strip.background = element_rect(fill = "#735f5f", colour = NA)) +
-    # theme(panel.border= element_rect(fill = NA, colour = "grey70", size = rel(1)))+
-    # Set title and axis labels, and format these and tick marks
-    theme(plot.title=element_text(color=color.title, 
-                                  size=20, 
-                                  vjust=1.25, 
-                                  hjust = 0.5
-    )) +
-    
-    theme(plot.subtitle=element_text(color=color.subtitle, size=base_size+2,  hjust = 0.5))  +
-    
-    theme(axis.text.x=element_text(size=base_size,color=color.axis.text)) +
-    theme(axis.text.y=element_text(size=base_size,color=color.axis.text)) +
-    theme(text=element_text(size=base_size, color=color.axis.text)) +
-    
-    theme(axis.title.x=element_text(size=base_size+2,color=color.axis.title, vjust=0)) +
-    theme(axis.title.y=element_text(size=base_size+2,color=color.axis.title, vjust=1.25)) +
-    theme(plot.caption=element_text(size=base_size-2,color=color.axis.title, vjust=1.25)) +
-    
-    # Legend  
-    theme(legend.text=element_text(size=base_size,color=color.axis.text)) +
-    theme(legend.title=element_text(size=base_size,color=color.axis.text)) +
-    theme(legend.key=element_rect(colour = color.background, fill = color.background)) +
-    theme(legend.position="bottom", 
-          legend.box = "horizontal", 
-          legend.title = element_blank(),
-          legend.key.width = unit(.75, "cm"),
-          legend.key.height = unit(.75, "cm"),
-          legend.spacing.x = unit(.25, 'cm'),
-          legend.spacing.y = unit(.25, 'cm'),
-          legend.margin = margin(t=0, r=0, b=0, l=0, unit="cm")) +
-    
-    # Plot margins
-    theme(plot.margin = unit(c(.5, .5, .5, .5), "cm"))
-  
-  ret
-}
+    ) # save w=1200 x h=800
 
 # Thema_nuevo_gris_oscuro -------------------------------------------------------------
 
-library(extrafont)
-
-# for windows
+# Fuente: https://rdrr.io/github/pmoracho/ggelegant/src/R/theme_elegante.R
+# para Windows
 windowsFonts(sans="Raleway")
 loadfonts(device="win")
 loadfonts(device="postscript")
 
 theme_elegante <- function(base_size = 16)
 {
-  color.background = "#FFFFFF" # Chart Background
-  color.grid.major = "#D9D9D9" # Chart Gridlines
-  color.axis.text = "grey30" # 
-  color.axis.title = "grey30" # 
+  color.background = "#FFFFFF" 
+  color.grid.major = "#D9D9D9" 
+  color.axis.text = "grey30" 
+  color.axis.title = "grey30" 
   color.title = "grey30"
   color.subtitle = "grey30"
   strip.background.color = '#000000'
@@ -1836,44 +1492,37 @@ theme_elegante <- function(base_size = 16)
   ret <-
     theme_bw(base_size=base_size) +
     
-    # Set the entire chart region to a light gray color
+    # Establecer toda la región del gráfico en un color gris claro
     theme(panel.background=element_rect(fill=color.background, color=color.background)) +
     theme(plot.background=element_rect(fill=color.background, color=color.background)) +
     theme(panel.border=element_rect(color=color.background)) +
     
-    # Format the grid
+    # Formato de la cuadrícula
     theme(panel.grid.major=element_line(color=color.grid.major,size=.55, linetype="dotted")) +
     theme(panel.grid.minor=element_line(color=color.grid.major,size=.55, linetype="dotted")) +
     theme(axis.ticks=element_blank()) +
     
-    # Format the legend, but hide by default
+    # Formato de la leyenda
     theme(legend.position="none") +
     theme(legend.background = element_rect(fill=color.background)) +
     theme(legend.text = element_text(size=base_size-3,color=color.axis.title)) +
-    
     theme(strip.text.x = element_text(size=base_size,color=color.background)) +
     theme(strip.text.y = element_text(size=base_size,color=color.background)) +
-    #theme(strip.background = element_rect(fill=strip.background.color, linetype="blank")) +
     theme(strip.background = element_rect(fill = "#735f5f", colour = NA)) +
-    # theme(panel.border= element_rect(fill = NA, colour = "grey70", size = rel(1)))+
-    # Set title and axis labels, and format these and tick marks
     theme(plot.title=element_text(color=color.title, 
                                   size=20, 
                                   vjust=1.25, 
                                   hjust = 0.5
     )) +
-    
     theme(plot.subtitle=element_text(color=color.subtitle, size=base_size+2,  hjust = 0.5))  +
-    
     theme(axis.text.x=element_text(size=base_size,color=color.axis.text)) +
     theme(axis.text.y=element_text(size=base_size,color=color.axis.text)) +
     theme(text=element_text(size=base_size, color=color.axis.text)) +
-    
     theme(axis.title.x=element_text(size=base_size+2,color=color.axis.title, vjust=0)) +
     theme(axis.title.y=element_text(size=base_size+2,color=color.axis.title, vjust=1.25)) +
     theme(plot.caption=element_text(size=base_size-2,color=color.axis.title, vjust=1.25)) +
     
-    # Legend  
+    # Leyenda  
     theme(legend.text=element_text(size=base_size,color=color.axis.text)) +
     theme(legend.title=element_text(size=base_size,color=color.axis.text)) +
     theme(legend.key=element_rect(colour = color.background, fill = color.background)) +
@@ -1886,7 +1535,7 @@ theme_elegante <- function(base_size = 16)
           legend.spacing.y = unit(.25, 'cm'),
           legend.margin = margin(t=0, r=0, b=0, l=0, unit="cm")) +
     
-    # Plot margins
+    # Márgenes
     theme(plot.margin = unit(c(.5, .5, .5, .5), "cm"))
   
   ret
