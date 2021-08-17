@@ -37,4 +37,5 @@ visibilizada en la prensa digital.
 -   [Video del 3er encuentro (jueves
     05/08)](https://youtu.be/u7mK1ktYL08)
 
--   [Video del 4to encuentro (jueves 12/08)]()
+-   [Video del 4to encuentro (jueves
+    12/08)](hhttps://youtu.be/jcuWz-HuJHY)

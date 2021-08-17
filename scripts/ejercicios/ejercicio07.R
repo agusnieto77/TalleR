@@ -753,7 +753,7 @@ RP_Tok_notas$nota_limpia <- gsub("cámara de diputados","cámara_diputados",RP_T
 RP_Tok_notas$nota_limpia <- gsub("cámara federal","cámara_federal",RP_Tok_notas$nota_limpia)
 
 ########-----Guardar---------##########################
-saveRDS(RP_Tok_notas, "RP_notas_normalizadas_2020.rds")
+saveRDS(RP_Tok_notas, paste0('RP_notas_normalizadas_2020_',Sys.Date(),'.rds'))
 #######################################################-
 
 #Tipo_conflictos
