@@ -39,3 +39,5 @@ visibilizada en la prensa digital.
 
 -   [Video del 4to encuentro (jueves
     12/08)](https://youtu.be/jcuWz-HuJHY)
+
+Hasta la próxima
