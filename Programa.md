@@ -106,10 +106,10 @@ estáticas como en páginas dinámicas. Transformación de la información
 semi-estructurada en datos estructurados.
 </li>
 <li>
-Lograr familiarizarse con algunos de los paquetes de visualización 📊 📈
-más populares en R. ‘Si no lo veo no lo creo’: las visualizaciones son
-una forma muy conveniente de detectar patrones y correlaciones (ni
-palabras ni números, garabatos).
+Tránsito de información semiestructurada a datos estructurados. 
+Normalización y limpieza de datos. 
+Visualización de datos con el paquete ggplot2. 
+Interacción entre paquetes para la georreferenciación: ggplot2 + sf.
 </li>
 </ol>
 
