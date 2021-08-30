@@ -48,7 +48,7 @@ llamarlos. En este sentido, y esta vez va en serio, los lenguajes de
 programación como R, Python, Julia y otros nos brindan herramientas muy
 potentes tanto para desarrollar los tradicionales análisis estadísticos
 como para utilizar y desarrollar algoritmos útiles para procesar y
-analizar un gran volumen de información no estructurada como o son las
+analizar un gran volumen de información no estructurada como son las
 notas periodísticas publicadas diariamente por los portales noticiosos
 como <em>La Nación</em>, <em>La Capital</em>, <em>Los Andes</em>, por
 nombrar solo algunos.
