@@ -20,8 +20,8 @@ rasgos_red$nodes
 rasgos_red$edges
 
 # Recortamos la base
-tw8mcompsub <- tw8mcomp[1:10000]
-rasgos_red_sub <- tw8mcompsub %>% Create("activity")
+tw8mcompsub <- tw8mcomp[1:10000,]
+rasgos_red <- tw8mcompsub %>% Create("activity")
 
 # Le damos formato graph
 datos_graph <- rasgos_red %>% Graph(writeToFile = TRUE)
@@ -30,7 +30,7 @@ datos_graph <- rasgos_red %>% Graph(writeToFile = TRUE)
 # Los nodos son usuarixs de Twitter y los bordes son la relación 
 # con otrxs usuarixs en la red, tales como reply, mention, retweety quote. 
 # Las menciones se pueden excluir configurando el parámetro inclMentions con el valor FALSE
-red_actorxs <- tw8mcomp %>%  Create("actor", inclMentions = TRUE)
+red_actorxs <- tw8mcompsub %>%  Create("actor", inclMentions = TRUE)
 
 red_actorxs$nodes
 
@@ -45,18 +45,24 @@ datos_graph_actorxs <- red_actorxs %>% Graph(writeToFile = TRUE)
 # un hashtag en particular en el mismo tweet.
 # Creamos una red semántica excluyendo el hashtag #8m, incluimos como nodos solo el 10% 
 # palabras más frecuentes y 20% de hashtags más frecuentes.
-red_semantica <- tw8mcomp %>% Create("semantic",
-         removeTermsOrHashtags = c("#8m"),
-         termFreq = 10,
-         hashtagFreq = 20)
+red_semantica <- tw8mcompsub %>% Create("semantic",
+                                        removeTermsOrHashtags = c(tm::stopwords('es'),"#8m"),
+                                        termFreq = 10,
+                                        hashtagFreq = 20)
+
+# Le damos formato graph
+datos_graph_red_semantica <- red_semantica %>% Graph(writeToFile = TRUE)
 
 # Red de modos alternativos
 # Los nodos son usuarixs o hashtags. 
 # Los bordes representan el uso de un hashtag o la referencia a otrx usuarix en un tweet.
-red_multiple <- tw8mcomp %>%  Create("twomode", removeTermsOrHashtags = c("#8m"), weighted = TRUE)
+red_multiple <- tw8mcompsub %>%  
+  Create("twomode", 
+         removeTermsOrHashtags = c(tm::stopwords('es'),"#8m"),
+         weighted = TRUE)
 
 red_multiple$nodes
-  
+
 red_multiple$edges
 
 # Le damos formato graph
