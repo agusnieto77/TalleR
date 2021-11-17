@@ -111,7 +111,15 @@ animate(
   )
 )
 
-# Recursos
+# Recursostutoriales y Guías para usar la API de Twitter con el paquete rtweet
 
+# https://analiticaurbana.netlify.app/obteniendo-y-analizando-datos-de-redes-sociales.html
+# https://docs.ropensci.org/rtweet/index.html
+# https://medium.com/@traffordDataLab/exploring-tweets-in-r-54f6011a193d
+# https://rtweet-workshop.mikewk.com/#1
+# https://dev.to/twitterdev/getting-started-with-r-and-the-twitter-api-1fdf
+# https://www.storybench.org/get-twitter-data-rtweet-r/
+# https://developer.twitter.com/en/docs/tutorials/getting-started-with-r-and-v2-of-the-twitter-api
 # https://cran.r-project.org/web/packages/rtweet/vignettes/intro.html
 # https://crd230.github.io/lab4b.html
+
